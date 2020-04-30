@@ -35,9 +35,8 @@ $gallery__grid-unit: 1fr;
   grid-area: four;
 }
 
-// Smaller, centered for blog content
-// Generally assumes fewer images per row
-.gallery__width-page {
+// Page galleries are a more narrow container, meant to be content-width for blog use.
+.gallery__page {
 
   .portrait-portrait {
     grid-template-rows: repeat(9, $gallery__grid-unit);
@@ -76,7 +75,9 @@ $gallery__grid-unit: 1fr;
   }
 }
 
-.gallery__width-full {
+// Hero galleries are more full-width and support links
+
+.gallery__hero {
 
   .portrait-portrait-portrait {
     grid-template-rows: repeat(9, $gallery__grid-unit);
@@ -118,13 +119,28 @@ $gallery__grid-unit: 1fr;
       ". one one one one one one one one one one one one two two two two two two . "
     ;
   }
-
 }
 
-.gallery__image-full {
-  width: 100%;
+.gallery__link > a {
+  display: block;
+  position: relative;
+  top: -66px;
+  right: 0px;
+
+  height: 60px;
+  padding-right: 16px;
+  border: none;
+
+  font-size: 24px;
+  line-height: 60px;
+  color:  $primary-white;
+  text-decoration: none;
+  text-align: right;
+  text-shadow: 1px 1px #000;
 }
 
-.gallery__image-half {
-  width: 50%;
+.image__ratio {
+  .gallery__link > a {
+    top: 0px;
+  }
 }
