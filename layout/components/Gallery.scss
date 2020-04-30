@@ -1,0 +1,130 @@
+@import '../Variables.scss';
+@import '../Mixins.scss';
+
+$gallery__grid-unit: 1fr;
+
+.gallery__container {
+  grid-area: gallery;
+
+  picture {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.gallery__row {
+  display: grid;
+  grid-template-columns: repeat(20, $gallery__grid-unit);
+  gap: 16px;
+  margin-bottom: 8px;
+}
+
+.image-0 {
+  grid-area: one;
+}
+.image-1 {
+  grid-area: two;
+}
+.image-2 {
+  grid-area: three;
+}
+.image-3 {
+  grid-area: four;
+}
+
+// Smaller, centered for blog content
+// Generally assumes fewer images per row
+.gallery__width-page {
+
+  .portrait-portrait {
+    grid-template-rows: repeat(9, $gallery__grid-unit);
+    grid-template-areas:
+      ". . . . one one one one one one two two two two two two . . . ."
+      ". . . . one one one one one one two two two two two two . . . ."
+      ". . . . one one one one one one two two two two two two . . . ."
+      ". . . . one one one one one one two two two two two two . . . ."
+      ". . . . one one one one one one two two two two two two . . . ."
+      ". . . . one one one one one one two two two two two two . . . .";
+  }
+
+  .landscape {
+    grid-template-rows: repeat(8, $gallery__grid-unit);
+    grid-template-areas:
+      ". . . . one one one one one one one one one one one one . . . ."
+      ". . . . one one one one one one one one one one one one . . . ."
+      ". . . . one one one one one one one one one one one one . . . ."
+      ". . . . one one one one one one one one one one one one . . . ."
+      ". . . . one one one one one one one one one one one one . . . ."
+      ". . . . one one one one one one one one one one one one . . . ."
+      ". . . . one one one one one one one one one one one one . . . ."
+      ". . . . one one one one one one one one one one one one . . . ."
+      ;
+  }
+
+  .landscape-portrait {
+    grid-template-rows: repeat(6, $gallery__grid-unit);
+    grid-template-areas:
+      ". . . . one one one one one one one one two two two two . . . ."
+      ". . . . one one one one one one one one two two two two . . . ."
+      ". . . . one one one one one one one one two two two two . . . ."
+      ". . . . one one one one one one one one two two two two . . . ."
+      ". . . . one one one one one one one one two two two two . . . ."
+      ". . . . one one one one one one one one two two two two . . . ."
+  }
+}
+
+.gallery__width-full {
+
+  .portrait-portrait-portrait {
+    grid-template-rows: repeat(9, $gallery__grid-unit);
+    grid-template-areas:
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ". one one one one one one two two two two two two three three three three three three  ."
+      ;
+  }
+
+  .portrait-portrait-portrait-portrait {
+    grid-template-rows: repeat(6, $gallery__grid-unit);
+    grid-template-areas:
+      ". . one one one one two two two two three three three three four four four four . ."
+      ". . one one one one two two two two three three three three four four four four . ."
+      ". . one one one one two two two two three three three three four four four four . ."
+      ". . one one one one two two two two three three three three four four four four . ."
+      ". . one one one one two two two two three three three three four four four four . ."
+      ". . one one one one two two two two three three three three four four four four . .";
+  }
+
+  .landscape-portrait {
+    grid-template-rows: repeat(9, $gallery__grid-unit);
+    grid-template-areas:
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+      ". one one one one one one one one one one one one two two two two two two . "
+    ;
+  }
+
+}
+
+.gallery__image-full {
+  width: 100%;
+}
+
+.gallery__image-half {
+  width: 50%;
+}
