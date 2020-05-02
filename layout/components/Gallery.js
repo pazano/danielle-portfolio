@@ -2,15 +2,13 @@ import Link from 'next/link';
 import Image from './Image';
 import './Gallery.scss';
 
-// TODO:  update image object structure
-
-const GalleryImageRow = ({ galleryImages, type }) => {
+const GalleryImageRow = ({ galleryImages, links }) => {
   const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '-' + galleryImage.aspect : galleryImage.aspect, "");
   const aspectCount = new Set(galleryImages.map(galleryImage => galleryImage.aspect)).size;
 
   let counter = 0;
 
-  if (type == "page") {
+  if (!links) {
     return(
       <div className={`gallery__row ${rowClassName}`}>
         { galleryImages &&
@@ -120,35 +118,22 @@ const GalleryImageLink = ({ url, alt, style, ratio, respectAspect, key, label, l
 }
 
 
-const PageGallery = ({ galleryRows }) => {
-  return (
-    <div className={`gallery__container gallery__page`}>
-      { galleryRows &&
-        galleryRows.map(( images ) =>
-          <GalleryImageRow
-            galleryImages={images}
-            type="page"
-          />)
-      }
-    </div>
-  )
-}
+// Gallery
+//    Type indicates layout width -- Hero uses smaller gutters than Page
+//    Links looks to display a label and link over Gallery entries
 
-const HeroGallery = ({ galleryRows }) => {
+const Gallery = ({ galleryRows, type="page", links=false }) => {
   return (
-    <div className={`gallery__container gallery__hero`}>
+    <div className={`gallery__container ${"gallery__" + type}`}>
       {galleryRows &&
         galleryRows.map((images) =>
           <GalleryImageRow
             galleryImages={images}
-            type="hero"
+            links={links}
           />)
       }
     </div>
   )
 }
 
-export {
-  PageGallery,
-  HeroGallery
-};
+export default Gallery;

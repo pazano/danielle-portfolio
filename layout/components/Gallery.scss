@@ -17,9 +17,15 @@ $gallery__grid-unit: 1fr;
 
 .gallery__row {
   display: grid;
-  grid-template-columns: repeat(20, $gallery__grid-unit);
-  gap: 16px;
-  margin-bottom: 8px;
+  grid-template-columns: repeat(18, $gallery__grid-unit);
+  gap: 8px;
+  margin-bottom: 4px;
+
+  @include bp-desktop-small {
+    grid-template-columns: repeat(20, $gallery__grid-unit);
+    gap: 16px;
+    margin-bottom: 8px;
+  }
 }
 
 .image-0 {
@@ -82,27 +88,51 @@ $gallery__grid-unit: 1fr;
   .portrait-portrait-portrait {
     grid-template-rows: repeat(9, $gallery__grid-unit);
     grid-template-areas:
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
-      ". one one one one one one two two two two two two three three three three three three  ."
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
+      "one one one one one one two two two two two two three three three three three three"
       ;
+
+    @include bp-desktop-small {
+      grid-template-areas:
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ". one one one one one one two two two two two two three three three three three three  ."
+        ;
+    }
   }
 
   .portrait-portrait-portrait-portrait {
     grid-template-rows: repeat(6, $gallery__grid-unit);
     grid-template-areas:
+      ". one one one one two two two two three three three three four four four four ."
+      ". one one one one two two two two three three three three four four four four ."
+      ". one one one one two two two two three three three three four four four four ."
+      ". one one one one two two two two three three three three four four four four ."
+      ". one one one one two two two two three three three three four four four four ."
+      ". one one one one two two two two three three three three four four four four .";
+
+    @include bp-desktop-small {
+      grid-template-areas:
       ". . one one one one two two two two three three three three four four four four . ."
       ". . one one one one two two two two three three three three four four four four . ."
       ". . one one one one two two two two three three three three four four four four . ."
       ". . one one one one two two two two three three three three four four four four . ."
       ". . one one one one two two two two three three three three four four four four . ."
       ". . one one one one two two two two three three three three four four four four . .";
+    }
   }
 
   .landscape-portrait {
@@ -119,6 +149,12 @@ $gallery__grid-unit: 1fr;
       ". one one one one one one one one one one one one two two two two two two . "
     ;
   }
+}
+
+.gallery__link {
+  display: flex;
+  align-items: flex-end;
+  justify-content: flex-end;
 }
 
 .gallery__link > a {
