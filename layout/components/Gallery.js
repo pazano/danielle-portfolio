@@ -54,7 +54,7 @@ const GalleryImage = ({ url, alt, style, ratio, respectAspect, key }) => {
     const viewBoxParams = splitParams[0] + " " + splitParams[1];
 
     return (
-      <div className={`image__ratio ${style}`}>
+      <div className={`image__respect-aspect ${style}`}>
         <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
         <Image
           url={url}
@@ -84,7 +84,7 @@ const GalleryImageLink = ({ url, alt, style, ratio, respectAspect, key, label, l
     const viewBoxParams = splitParams[0] + " " + splitParams[1];
 
     return (
-      <div className={`image__ratio ${style}`}>
+      <div className={`image__respect-aspect ${style}`}>
         <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
         <Image
           url={url}
@@ -124,7 +124,7 @@ const GalleryImageLink = ({ url, alt, style, ratio, respectAspect, key, label, l
 
 const Gallery = ({ galleryRows, type="page", links=false }) => {
   return (
-    <div className={`gallery__container ${"gallery__" + type}`}>
+    <div className={`gallery__container ${"gallery__" + type} ${links ? "gallery__with-links" : ''}`}>
       {galleryRows &&
         galleryRows.map((images) =>
           <GalleryImageRow
