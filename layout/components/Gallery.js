@@ -84,35 +84,39 @@ const GalleryImageLink = ({ url, alt, style, ratio, respectAspect, key, label, l
     const viewBoxParams = splitParams[0] + " " + splitParams[1];
 
     return (
-      <div className={`image__respect-aspect ${style}`}>
-        <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
-        <Image
-          url={url}
-          alt={alt}
-          key={key}
-        />
-        <div className="gallery__link">
-          <Link href={link}>
-            <a>{label}</a>
-          </Link>
+      <Link href={link}>
+        <div className={`image__respect-aspect link ${style}`}>
+          <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
+          <Image
+            url={url}
+            alt={alt}
+            key={key}
+          />
+          <div className="gallery__link">
+            <Link href={link}>
+              <a>{label}</a>
+            </Link>
+          </div>
         </div>
-      </div>
+      </Link>
     )
   }
   else {
     return (
-      <div className={style}>
-        <Image
-          url={url}
-          alt={alt}
-          key={key}
-        />
-        <div className="gallery__link">
-          <Link href={link}>
-            <a>{label}</a>
-          </Link>
+      <Link href={link}>
+        <div className={`link ${style}`}>
+          <Image
+            url={url}
+            alt={alt}
+            key={key}
+          />
+          <div className="gallery__link">
+            <Link href={link}>
+              <a>{label}</a>
+            </Link>
+          </div>
         </div>
-      </div>
+      </Link>
     )
   }
 }

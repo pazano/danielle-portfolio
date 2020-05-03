@@ -176,8 +176,8 @@ $gallery__grid-unit: 1fr;
   background: $primary-white;
   padding: 4px;
 
-  font-size: 18px;
-  line-height: 32px;
+  font-size: 16px;
+  line-height: 28px;
   color:  $primary-text;
   font-family: $ff-headline;
 
@@ -185,4 +185,9 @@ $gallery__grid-unit: 1fr;
   text-decoration: none;
   text-transform: uppercase;
   letter-spacing: 2.16px;
+
+  @include bp-desktop-small {
+    font-size: 18px;
+    line-height: 32px;
+  }
 }

@@ -60,6 +60,9 @@ a:hover {
   color: $link-text-hover;
   border-color: $link-text-hover;
 }
+.link {
+  cursor: pointer;
+}
 
 
 .content {
