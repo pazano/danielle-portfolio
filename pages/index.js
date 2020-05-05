@@ -127,7 +127,6 @@ const galleryRows2 = [
       ratio: '2x3',
     },
   ],
-
 ]
 
 
@@ -137,7 +136,7 @@ const Index = () => (
       <Gallery
         galleryRows={galleryRows2}
         type="hero"
-        links={false}
+        displayLinks={false}
         />
     </div>
   </Page>

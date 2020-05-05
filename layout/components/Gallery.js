@@ -2,13 +2,13 @@ import Link from 'next/link';
 import Image from './Image';
 import './Gallery.scss';
 
-const GalleryImageRow = ({ galleryImages, links }) => {
+const GalleryImageRow = ({ galleryImages, displayLinks, respectAspect }) => {
   const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '-' + galleryImage.aspect : galleryImage.aspect, "");
-  const aspectCount = new Set(galleryImages.map(galleryImage => galleryImage.aspect)).size;
+  // const aspectCount = new Set(galleryImages.map(galleryImage => galleryImage.aspect)).size;
 
   let counter = 0;
 
-  if (!links) {
+  if (!displayLinks) {
     return(
       <div className={`gallery__row ${rowClassName}`}>
         { galleryImages &&
@@ -18,7 +18,7 @@ const GalleryImageRow = ({ galleryImages, links }) => {
               alt={alt}
               style={`image-${counter}`}
               ratio={ratio}
-              respectAspect={aspectCount > 1 ? false : true}
+              respectAspect={respectAspect}
               key={`gallery-image-${++counter}`}
             />
           )
@@ -126,14 +126,21 @@ const GalleryImageLink = ({ url, alt, style, ratio, respectAspect, key, label, l
 //    Type indicates layout width -- Hero uses smaller gutters than Page
 //    Links looks to display a label and link over Gallery entries
 
-const Gallery = ({ galleryRows, type="page", links=false }) => {
+const Gallery = ({ galleryRows, type="page", displayLinks=false }) => {
+
+  const respectAspect = galleryRows.reduce(((result, row) => {
+    return result += new Set(row.map(image => image.aspect)).size;
+  }), 0) > galleryRows.length ? false : true;
+
+
   return (
-    <div className={`gallery__container ${"gallery__" + type} ${links ? "gallery__with-links" : ''}`}>
+    <div className={`gallery__container ${"gallery__" + type} ${displayLinks ? "gallery__with-links" : ''}`}>
       {galleryRows &&
         galleryRows.map((images) =>
           <GalleryImageRow
             galleryImages={images}
-            links={links}
+            displayLinks={displayLinks}
+            respectAspect={respectAspect}
           />)
       }
     </div>
