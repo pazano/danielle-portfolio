@@ -83,19 +83,19 @@ const galleryRows2 = [
       ratio: '2x3',
     },
     {
-      url: '/images/014.jpg',
+      url: '/images/001.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
     },
     {
-      url: '/images/004.jpg',
+      url: '/images/001.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
     },
     {
-      url: '/images/006.jpg',
+      url: '/images/001.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
@@ -103,25 +103,25 @@ const galleryRows2 = [
   ],
   [
     {
-      url: '/images/011.jpg',
+      url: '/images/001.jpg',
       alt: 'Paul at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
     },
     {
-      url: '/images/013.jpg',
+      url: '/images/001.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
     },
     {
-      url: '/images/015.jpg',
+      url: '/images/001.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
     },
     {
-      url: '/images/002.jpg',
+      url: '/images/001.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
