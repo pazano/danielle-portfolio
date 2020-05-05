@@ -8,122 +8,126 @@ const seo = {
 const galleryRows = [
   [
     {
-      url: '/images/fpo/010.jpg',
+      url: '/images/001.jpg',
       alt: 'Paul at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Fashion',
-      link: '/',
     },
     {
-      url: '/images/fpo/012.jpg',
+      url: '/images/003.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Beauty',
-      link: '/',
     },
     {
-      url: '/images/fpo/009.jpg',
+      url: '/images/004.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Headshots',
-      link: '/',
     },
-  ],
-]
-
-const gallery4up = [
-  [
     {
-      url: '/images/fpo/009.jpg',
+      url: '/images/005.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Headshots',
-      link: '/',
-    },
-    {
-      url: '/images/fpo/010.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3',
-      label: 'Fashion',
-      link: '/',
-    },
-    {
-      url: '/images/fpo/012.jpg',
-      alt: 'Danielle at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3',
-      label: 'Beauty',
-      link: '/',
-    },
-    {
-      url: '/images/fpo/010.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3',
-      label: 'Fashion',
-      link: '/',
     },
   ],
   [
     {
-      url: '/images/fpo/009.jpg',
+      url: '/images/010w.jpg',
+      alt: 'Paul at the Pink Beach on Crete',
+      aspect: 'landscape',
+      ratio: '3x2',
+    },
+    {
+      url: '/images/003.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Headshots',
-      link: '/',
     },
     {
-      url: '/images/fpo/010.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3',
-      label: 'Fashion',
-      link: '/',
-    },
-    {
-      url: '/images/fpo/012.jpg',
+      url: '/images/004.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Beauty',
-      link: '/',
     },
+  ],
+  [
     {
-      url: '/images/fpo/010.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
+      url: '/images/003.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Fashion',
-      link: '/',
     },
-  ]
+    {
+      url: '/images/010w.jpg',
+      alt: 'Paul at the Pink Beach on Crete',
+      aspect: 'landscape',
+      ratio: '3x2',
+    },
+    {
+      url: '/images/004.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      aspect: 'portrait',
+      ratio: '2x3',
+    },
+  ],
 ]
 
 const galleryRows2 = [
   [
     {
-      url: '/images/fpo/013.jpg',
+      url: '/images/001.jpg',
       alt: 'Paul at the Pink Beach on Crete',
-      aspect: 'landscape',
-      ratio: '3x2',
-      label: 'Module One',
-      link: '/',
+      aspect: 'portrait',
+      ratio: '2x3',
     },
     {
-      url: '/images/fpo/012.jpg',
+      url: '/images/014.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       aspect: 'portrait',
       ratio: '2x3',
-      label: 'Module Two',
-      link: '/',
+    },
+    {
+      url: '/images/004.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      aspect: 'portrait',
+      ratio: '2x3',
+    },
+    {
+      url: '/images/006.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      aspect: 'portrait',
+      ratio: '2x3',
     },
   ],
+  [
+    {
+      url: '/images/011.jpg',
+      alt: 'Paul at the Pink Beach on Crete',
+      aspect: 'portrait',
+      ratio: '2x3',
+    },
+    {
+      url: '/images/013.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      aspect: 'portrait',
+      ratio: '2x3',
+    },
+    {
+      url: '/images/015.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      aspect: 'portrait',
+      ratio: '2x3',
+    },
+    {
+      url: '/images/002.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      aspect: 'portrait',
+      ratio: '2x3',
+    },
+  ],
+
 ]
 
 
@@ -131,7 +135,7 @@ const Index = () => (
   <Page seo={seo} >
     <div className="content__gallery">
       <Gallery
-        galleryRows={gallery4up}
+        galleryRows={galleryRows2}
         type="hero"
         links={false}
         />
