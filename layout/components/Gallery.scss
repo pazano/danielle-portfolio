@@ -17,7 +17,6 @@ $gallery__grid-unit: 1fr;
 
 .gallery__row {
   display: grid;
-  grid-template-columns: repeat(18, $gallery__grid-unit);
   gap: 16px;
   margin-bottom: 8px;
 
@@ -26,8 +25,40 @@ $gallery__grid-unit: 1fr;
   }
 }
 
+.gallery__link {
+  display: none;
+}
+
 /* Adds bottom margin to gallery__row to account for link and label */
-.gallery__with-links {
+.gallery__with-link-labels {
+
+  .gallery__link {
+    display: flex;
+    align-content: center;
+    justify-content: center;
+    grid-area: 2 / 1 / 2 / 1;
+  }
+
+  .gallery__link > a {
+    border: none;
+    background: $primary-white;
+    padding: 4px;
+
+    font-size: 16px;
+    line-height: 28px;
+    color:  $primary-text;
+    font-family: $ff-headline;
+
+    font-weight: 200;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 2.16px;
+
+    @include bp-desktop-small {
+      font-size: 18px;
+      line-height: 32px;
+    }
+  }
 
   .gallery__row {
     margin-bottom: 24px;
@@ -97,17 +128,8 @@ $gallery__grid-unit: 1fr;
 .gallery__hero {
 
   .portrait-portrait-portrait {
-    grid-template-rows: repeat(9, $gallery__grid-unit);
     grid-template-areas:
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
-      "one one one one one one two two two two two two three three three three three three"
+      "one two three"
       ;
 
     @include bp-desktop-small {
@@ -126,36 +148,12 @@ $gallery__grid-unit: 1fr;
   }
 
   .portrait-portrait-portrait-portrait {
-    grid-template-rows: repeat(22, $gallery__grid-unit);
     grid-template-areas:
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      " . one one one one one one one one two two two two two two two two . "
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four ."
-      ". three three three three three three three three four four four four four four four four .";
+      "one two"
+      "three four";
 
     @include bp-desktop-small {
-      grid-template-rows: repeat(4, $gallery__grid-unit);
+      grid-template-rows: repeat(6, $gallery__grid-unit);
       grid-template-areas:
       ". . one one one one two two two two three three three three four four four four . ."
       ". . one one one one two two two two three three three three four four four four . ."
@@ -192,15 +190,6 @@ $gallery__grid-unit: 1fr;
       "one one one one one one one one one one two two two two three three three three"
       "one one one one one one one one one one two two two two three three three three"
     ;
-    // .image-0 {
-    //   grid-area: 1 / 1 / 5 / 10;
-    // }
-    // .image-1 {
-    //   grid-area: 1 / 10 / 5 / 14;
-    // }
-    // .image-2 {
-    //   grid-area: 1 / 14 / 5 / 17;
-    // }
 
     @include bp-desktop-small {
       grid-template-areas:
@@ -211,16 +200,6 @@ $gallery__grid-unit: 1fr;
       ". one one one one one one one one one one two two two two three three three three ."
       ". one one one one one one one one one one two two two two three three three three ."
       ;
-
-      // .image-0 {
-      //   grid-area: 1 / 2 / 5 / 12;
-      // }
-      // .image-1 {
-      //   grid-area: 1 / 12 / 5 / 16;
-      // }
-      // .image-2 {
-      //   grid-area: 1 / 16 / 5 / 20;
-      // }
     }
   }
 
@@ -236,16 +215,6 @@ $gallery__grid-unit: 1fr;
       "one one one one two two two two two two two two two two three three three three"
       "one one one one two two two two two two two two two two three three three three";
 
-    // .image-0 {
-    //   grid-area: 1 / 1 / 5 / 5;
-    // }
-    // .image-1 {
-    //   grid-area: 1 / 5 / 5 / 15;
-    // }
-    // .image-2 {
-    //   grid-area: 1 / 15 / 5 / 19;
-    // }
-
     @include bp-desktop-small{
       grid-template-areas:
         ". one one one one two two two two two two two two two two three three three three ."
@@ -254,44 +223,10 @@ $gallery__grid-unit: 1fr;
         ". one one one one two two two two two two two two two two three three three three ."
         ". one one one one two two two two two two two two two two three three three three ."
         ". one one one one two two two two two two two two two two three three three three .";
-      // .image-0 {
-      //   grid-area: 1 / 2 / 5 / 6;
-      // }
-      // .image-1 {
-      //   grid-area: 1 / 6 / 5 / 16;
-      // }
-      // .image-2 {
-      //   grid-area: 1 / 16 / 5 / 20;
-      // }
     }
 
   }
 }
 
-.gallery__link {
-  display: flex;
-  align-content: center;
-  justify-content: center;
-  grid-area: 2 / 1 / 2 / 1;
-}
 
-.gallery__link > a {
-  border: none;
-  background: $primary-white;
-  padding: 4px;
-
-  font-size: 16px;
-  line-height: 28px;
-  color:  $primary-text;
-  font-family: $ff-headline;
-
-  font-weight: 200;
-  text-decoration: none;
-  text-transform: uppercase;
-  letter-spacing: 2.16px;
-
-  @include bp-desktop-small {
-    font-size: 18px;
-    line-height: 32px;
-  }
-}
+.debug { border: dotted 1px #f00; }

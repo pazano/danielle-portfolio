@@ -2,123 +2,74 @@ import Link from 'next/link';
 import Image from './Image';
 import './Gallery.scss';
 
-const GalleryImageRow = ({ galleryImages, displayLinks, respectAspect }) => {
-  const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '-' + galleryImage.aspect : galleryImage.aspect, "");
-  // const aspectCount = new Set(galleryImages.map(galleryImage => galleryImage.aspect)).size;
+const GalleryImageRow = ({ galleryImages, respectAspect }) => {
+  const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '-' + galleryImage.orientation : galleryImage.orientation, "");
 
   let counter = 0;
-
-  if (!displayLinks) {
-    return(
-      <div className={`gallery__row ${rowClassName}`}>
-        { galleryImages &&
-          galleryImages.map(({ url, alt, ratio }) =>
-            <GalleryImage
-              url={url}
-              alt={alt}
-              style={`image-${counter}`}
-              ratio={ratio}
-              respectAspect={respectAspect}
-              key={`gallery-image-${++counter}`}
-            />
-          )
-        }
-      </div>
-    )
-  } else {
-    return (
-      <div className={`gallery__row ${rowClassName}`}>
-        {galleryImages &&
-          galleryImages.map(({ url, alt, ratio, label, link }) =>
-            <GalleryImageLink
-              url={url}
-              alt={alt}
-              style={`image-${counter}`}
-              ratio={ratio}
-              respectAspect={aspectCount > 1 ? false : true}
-              label={label}
-              link={link}
-              key={`gallery-image-${++counter}`}
-            />
-          )
-        }
-      </div>
-    )
-  }
+  return(
+    <div className={`gallery__row ${rowClassName}`}>
+      { galleryImages &&
+        galleryImages.map(({ url, alt, aspectRatio, link }) => {
+            const image = {
+              url,
+              alt,
+              aspectRatio,
+              respectAspect,
+              style: 'image-' + counter,
+            }
+            if (link) {
+              return(
+                <GalleryImageLink
+                  image={image}
+                  link={link}
+                  key={`gallery-image-${++counter}`}
+                />
+              )
+            } else {
+              return(
+                <GalleryImage
+                  image={image}
+                  key={`gallery-image-${++counter}`}
+                />
+              )
+            }
+          }
+        )
+      }
+    </div>
+  )
 }
 
-const GalleryImage = ({ url, alt, style, ratio, respectAspect, key }) => {
-
-  if (respectAspect) {
-    const splitParams = ratio && ratio.split("x");
-    const viewBoxParams = splitParams[0] + " " + splitParams[1];
-
-    return (
-      <div className={`image__respect-aspect ${style}`}>
-        <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
-        <Image
-          url={url}
-          alt={alt}
-          key={key}
-        />
-      </div>
-    )
-  }
-  else {
-    return (
-      <div className={style}>
-        <Image
-          url={url}
-          alt={alt}
-          key={key}
-        />
-      </div>
-    )
-  }
+const GalleryImage = ({ image, key }) => {
+  return (
+    <div className={`gallery__image ${image.style}`}>
+      <Image
+        url={image.url}
+        alt={image.alt}
+        aspectRatio={image.aspectRatio}
+        respectAspect={image.respectAspect}
+        key={key}
+      />
+    </div>
+  )
 }
 
-const GalleryImageLink = ({ url, alt, style, ratio, respectAspect, key, label, link }) => {
-
-  if (respectAspect) {
-    const splitParams = ratio && ratio.split("x");
-    const viewBoxParams = splitParams[0] + " " + splitParams[1];
-
-    return (
-      <Link href={link}>
-        <div className={`image__respect-aspect link ${style}`}>
-          <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
+// image:  {url, alt, style, aspectRatio, respectAspect}
+// link:  {label, target,}
+const GalleryImageLink = ({ image, link, key }) => {
+  return (
+      <Link href={link.target}>
+        <div className={`gallery__image link ${image.style}`}>
           <Image
-            url={url}
-            alt={alt}
+            url={image.url}
+            alt={image.alt}
+            aspectRatio={image.aspectRatio}
+            respectAspect={image.respectAspect}
             key={key}
           />
-          <div className="gallery__link">
-            <Link href={link}>
-              <a>{label}</a>
-            </Link>
-          </div>
         </div>
       </Link>
-    )
-  }
-  else {
-    return (
-      <Link href={link}>
-        <div className={`link ${style}`}>
-          <Image
-            url={url}
-            alt={alt}
-            key={key}
-          />
-          <div className="gallery__link">
-            <Link href={link}>
-              <a>{label}</a>
-            </Link>
-          </div>
-        </div>
-      </Link>
-    )
-  }
+  )
 }
 
 
@@ -126,20 +77,20 @@ const GalleryImageLink = ({ url, alt, style, ratio, respectAspect, key, label, l
 //    Type indicates layout width -- Hero uses smaller gutters than Page
 //    Links looks to display a label and link over Gallery entries
 
-const Gallery = ({ galleryRows, type="page", displayLinks=false }) => {
+const Gallery = ({ galleryRows, type="page", visibleLinks=false }) => {
 
+  //  Test for aspects in the list, disable strict aspect management if mixed
   const respectAspect = galleryRows.reduce(((result, row) => {
-    return result += new Set(row.map(image => image.aspect)).size;
+    return result += new Set(row.map(image => image.orientation)).size;
   }), 0) > galleryRows.length ? false : true;
 
 
   return (
-    <div className={`gallery__container ${"gallery__" + type} ${displayLinks ? "gallery__with-links" : ''}`}>
+    <div className={`gallery__container ${"gallery__" + type} ${visibleLinks ? "gallery__with-link-labels" : ''}`}>
       {galleryRows &&
         galleryRows.map((images) =>
           <GalleryImageRow
             galleryImages={images}
-            displayLinks={displayLinks}
             respectAspect={respectAspect}
           />)
       }

@@ -69,7 +69,7 @@ const Portfolio = () => (
       <Gallery
         galleryRows={portfolioLinks}
         type="hero"
-        links={true}
+        displayLinks={true}
         />
     </div>
   </Page>
