@@ -55,10 +55,10 @@ const GalleryImage = ({ image, key }) => {
 }
 
 // image:  {url, alt, style, aspectRatio, respectAspect}
-// link:  {label, target,}
+// link:  {label, target, slug}
 const GalleryImageLink = ({ image, link, key }) => {
   return (
-      <Link href={link.target}>
+      <Link href={link.target} as={link.slug} >
         <div className={`gallery__image link ${image.style}`}>
           <Image
             url={image.url}
@@ -86,14 +86,16 @@ const Gallery = ({ galleryRows, type="page", visibleLinks=false }) => {
 
 
   return (
-    <div className={`gallery__container ${"gallery__" + type} ${visibleLinks ? "gallery__with-link-labels" : ''}`}>
-      {galleryRows &&
-        galleryRows.map((images) =>
-          <GalleryImageRow
-            galleryImages={images}
-            respectAspect={respectAspect}
-          />)
-      }
+    <div className="content__gallery">
+      <div className={`gallery__container ${"gallery__" + type} ${visibleLinks ? "gallery__with-link-labels" : ''}`}>
+        {galleryRows &&
+          galleryRows.map((images) =>
+            <GalleryImageRow
+              galleryImages={images}
+              respectAspect={respectAspect}
+            />)
+        }
+      </div>
     </div>
   )
 }

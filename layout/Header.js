@@ -6,7 +6,7 @@ import './Header.scss';
 const Logo = () => (
   <div className="logo">
     <Link href="/">
-      <h1>Danielle Rouillard Photography</h1>
+      <h1>elle | rou <span>photography</span></h1>
     </Link>
   </div>
 )

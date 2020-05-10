@@ -19,7 +19,8 @@ const galleryRows2 = [
       orientation: 'portrait',
       aspectRatio: '2x3',
       link: {
-        target: '/portfolio',
+        target: '/images/image-detail-test',
+        slug: 'images/image-detail-test',
         label: 'One'
       }
     },
@@ -91,12 +92,10 @@ const galleryRows2 = [
 
 const Index = () => (
   <Page seo={seo} >
-    <div className="content__gallery">
-      <Gallery
-        galleryRows={galleryRows2}
-        type="hero"
-        />
-    </div>
+    <Gallery
+      galleryRows={galleryRows2}
+      type="hero"
+      />
   </Page>
 );
 

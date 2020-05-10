@@ -2,7 +2,7 @@ import './Image.scss';
 
 // TODO:  upgrade url to variants / srcset list
 
-const Image = ({ url, alt, aspectRatio, respectAspect, style }) => {
+const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
 
   if(respectAspect) {
 

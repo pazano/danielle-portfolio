@@ -35,6 +35,10 @@
   font-weight: 400;
   letter-spacing: 4.25px;
 
+  span {
+    color: $alt-text;
+  }
+
   @include bp-tablet {
     font-size: 17px;
   }
