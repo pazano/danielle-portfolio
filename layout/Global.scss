@@ -1,7 +1,7 @@
 @import './Variables.scss';
 @import './Mixins.scss';
 
-@import url('https://fonts.googleapis.com/css?family=Raleway:200,400|Work+Sans:200,400');
+@import url('https://fonts.googleapis.com/css?family=Cardo|Raleway:200,400|Work+Sans:200,400&display=swap');
 @import url("https://use.typekit.net/fha1rpn.css");
 
 body {
@@ -60,18 +60,15 @@ a:hover {
   color: $link-text-hover;
   border-color: $link-text-hover;
 }
+.link {
+  cursor: pointer;
+}
 
 
 .content {
   display: grid;
   justify-content: center;
-
-  .content__copy {
-    margin: 0 auto;
-  }
-  .content__copy > * {
-    margin: 16px;
-  }
+  margin: 0 auto;
 
   .content__callout {
     text-align: center;
@@ -80,8 +77,12 @@ a:hover {
   .content__gallery {
     width: 100vw;
   }
-
 }
+
+.content > * {
+  margin: 16px;
+}
+
 
 .padding__high {
   padding-top: 100px;
@@ -118,4 +119,8 @@ a:hover {
   @include bp-desktop-medium {
     width: 70vw;
   }
+}
+
+.footer > h4 {
+  font-size: 14px;
 }

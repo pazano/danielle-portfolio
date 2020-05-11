@@ -1,7 +1,7 @@
-.image__ratio {
+.image__respect-aspect {
   display: grid;
 }
 
-.image__ratio > * {
+.image__respect-aspect > * {
   grid-area: 1 / 1 / 2 / 2;
 }

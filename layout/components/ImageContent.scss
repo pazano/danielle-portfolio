@@ -1,0 +1,44 @@
+@import '../Variables.scss';
+@import '../Mixins.scss';
+
+.module__image-content {
+  display: grid;
+  grid-gap: 16px;
+
+  picture {
+    img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+  }
+}
+
+.module__image-content__portrait {
+  grid-template-areas:
+    "module_image"
+    "module_content";
+
+  @include bp-desktop-medium {
+    grid-template-areas: "module_image module_content";
+  }
+}
+
+.module__image-content__landscape {
+  grid-template-areas:
+    "module_image"
+    "module_content";
+}
+
+
+
+.module__image-content__image {
+  grid-area: module_image;
+  object-fit: contain;
+}
+
+.module__image-content__content {
+  grid-area: module_content;
+  display: flex;
+  justify-content: center;
+}
