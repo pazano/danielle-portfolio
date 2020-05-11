@@ -13,9 +13,9 @@ const image = {
 }
 
 const content = `
-  <p>Hello detail</p>
-  <a href="/">Go Somewhere</a>
-  <p>More Detail</p>
+  <p>Model:  <a href="/">@modelinstagram</a></p>
+  <p>Hair:  <a href="/">@hairinstagrame</a></p>
+  <p>Makeup:  <a href="/">@makeup_instagrame</a></p>
 `;
 
 
