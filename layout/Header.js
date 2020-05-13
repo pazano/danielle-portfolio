@@ -14,31 +14,18 @@ const Logo = () => (
 const Header = () => {
   const fakeMenu = [
     {
-      label: 'Portfolio',
-      target: '/portfolio',
-      key: 'menu-portfolio'
-    },
-    {
-      label: 'Blog',
-      target: '/blog',
-      key: 'menu-blog'
-    },
-    {
       label: 'About',
       target: '/about',
       key: 'menu-about'
     },
-    {
-      label: 'Contact',
-      target: '/contact',
-      key: 'menu-contact'
-    },
   ];
+
+  const emptyMenu = [];
 
   return(
     <div className="header">
       <Navigation
-        menuItems={fakeMenu}
+        menuItems={emptyMenu}
       />
       <Logo />
     </div>

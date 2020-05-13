@@ -7,7 +7,6 @@ const nextConfig = {
   exportPathMap: function () {
     return {
       '/': { page: '/' },
-      '/portfolio': { page: '/portfolio' },
     }
   }
 }
