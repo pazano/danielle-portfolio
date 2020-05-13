@@ -2,19 +2,40 @@ import './Image.scss';
 
 // TODO:  upgrade url to variants / srcset list
 
+const buildSizeList = (responsiveLoaderObject, stretchTolerance) => {
+  let counter = 1;
+  return responsiveLoaderObject.images.reduce((sizeList, {width}) => {
+    if(counter == responsiveLoaderObject.images.length) {
+      return sizeList + `${width}px`;
+    } else {
+      counter++;
+      return sizeList + `(max-width: ${width + width * (stretchTolerance / 100)}px) ${width}px, `;
+    }
+  }, "")
+}
+
+
 const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
+
+  // WIP image optimize
+  const image = require(`../../public/images/${url}?resize`)
+  // const image = { src: url };
 
   if(respectAspect) {
 
     const splitParams = aspectRatio && aspectRatio.split("x");
     const viewBoxParams = splitParams[0] + " " + splitParams[1];
 
+    const sizeList = buildSizeList(image, 20);
+
     return (
       <div className={`image__respect-aspect ${style}`}>
         <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
         <picture>
           <img
-            src={url} alt={alt} />
+            srcSet={image.srcSet}
+            sizes={sizeList}
+            src={image.src} alt={alt} />
         </picture>
       </div>
     )
@@ -24,7 +45,9 @@ const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
       <div className={style}>
         <picture>
           <img
-            src={url} alt={alt} />
+            srcSet={image.srcSet}
+            sizes={sizeList}
+            src={image.src} alt={alt} />
         </picture>
       </div>
     )
