@@ -6,7 +6,7 @@ const seo = {
 }
 
 const image = {
-  url: '/images/007w.jpg',
+  url: '007w.jpg',
   alt: 'Danielle at the Pink Beach on Crete',
   orientation: 'landscape',
   aspectRatio: '3x2',

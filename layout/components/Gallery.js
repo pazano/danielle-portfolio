@@ -7,7 +7,7 @@ const GalleryImageRow = ({ galleryImages, respectAspect, rowKey }) => {
 
   let counter = 0;
   return(
-    <div className={`gallery__row ${rowClassName}`}>
+    <div className={`gallery__row ${rowClassName}`} key={rowKey}>
       { galleryImages &&
         galleryImages.map(({ url, alt, aspectRatio, link }) => {
             const image = {

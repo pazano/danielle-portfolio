@@ -17,6 +17,7 @@ module.exports = plugins([
   [optimizedImages, {
     handleImages: ['jpeg'],
     optimizeImagesInDev: true,
+    imagesFolder: 'images',
     mozjpeg: {
       quality: 80,
     },
