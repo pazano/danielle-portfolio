@@ -12,7 +12,7 @@ const Logo = () => (
 )
 
 const Header = () => {
-  const fakeMenu = [
+  const menu = [
     {
       label: 'About',
       target: '/about',
@@ -25,7 +25,7 @@ const Header = () => {
   return(
     <div className="header">
       <Navigation
-        menuItems={emptyMenu}
+        menuItems={menu}
       />
       <Logo />
     </div>

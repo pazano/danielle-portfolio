@@ -1,6 +1,5 @@
 import './Image.scss';
 
-// TODO:  upgrade url to variants / srcset list
 
 const buildSizeList = (responsiveLoaderObject, stretchTolerance) => {
   let counter = 1;
@@ -17,9 +16,7 @@ const buildSizeList = (responsiveLoaderObject, stretchTolerance) => {
 
 const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
 
-  // WIP image optimize
-  const image = require(`../../public/images/${url}?resize`)
-  // const image = { src: url };
+  const image = require(`../../public/images/${url}?resize`);
 
   if(respectAspect) {
 
