@@ -1,4 +1,4 @@
-@import url(https://fonts.googleapis.com/css?family=Cardo|Raleway:200,400|Work+Sans:200,400&display=swap);
+@import url(https://fonts.googleapis.com/css?family=Cardo|Assistant:200,400|Raleway:200,400&display=swap);
 @import url(https://use.typekit.net/fha1rpn.css);
 /* Typography */
 /* Breakpoint Definitions */
@@ -19,7 +19,7 @@
 .navigation__menu {
   background-color: #ffffff;
   position: absolute;
-  font-family: "brandon-grotesque", "sans-serif";
+  font-family: "Raleway", "sans-serif";
   top: 60px;
   width: 100vw;
   height: calc(100vh - 60px);
@@ -73,9 +73,9 @@
 /* Typography */
 /* Breakpoint Definitions */
 body {
-  color: #444;
-  font-size: 16px;
-  font-family: "Cardo", "serif";
+  color: #555;
+  font-size: 18px;
+  font-family: "Assistant", "sans-serif";
   letter-spacing: 0.16px;
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: subpixel-antialiased;
@@ -84,10 +84,16 @@ body {
   padding: 0px; }
 
 h1, h2, h3, h4, h5 {
-  font-family: "brandon-grotesque", "sans-serif";
+  font-family: "Raleway", "sans-serif";
+  text-transform: uppercase;
   font-weight: 400;
   padding: 0px;
   margin: 0px; }
+
+h1 {
+  font-size: 1.7em;
+  font-weight: 200;
+  letter-spacing: 3px; }
 
 h2 {
   font-size: 35px;
@@ -96,16 +102,15 @@ h2 {
   margin-block-end: 29.05px; }
 
 h3 {
-  font-size: 16px;
-  text-transform: uppercase;
-  letter-spacing: 2.4px;
-  line-height: 25.6px;
+  font-size: 18px;
+  color: #777;
+  letter-spacing: 2px;
   margin-top: 15px;
-  margin-block-end: 29.05px;
-  margin-block-start: 29.05px; }
+  margin-block-end: 1.5em;
+  margin-block-start: 1.5em; }
 
 p {
-  line-height: 27.2px;
+  line-height: 1.7em;
   font-weight: 500; }
 
 a {
@@ -196,7 +201,7 @@ a:hover {
       padding-left: 32px; } }
 
 .logo h1 {
-  font-family: "Work Sans", "sans-serif";
+  font-family: "Raleway", "sans-serif";
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 400;
@@ -247,11 +252,11 @@ a:hover {
 
 .gallery__row {
   display: grid;
-  gap: 16px;
-  margin-bottom: 8px; }
+  gap: 8px;
+  margin-bottom: 4px; }
   @media all and (min-width: 960px) {
     .gallery__row {
-      grid-template-columns: repeat(20, 1fr); } }
+      grid-template-columns: repeat(16, 1fr); } }
 
 .gallery__link {
   display: none; }
@@ -269,8 +274,8 @@ a:hover {
   padding: 4px;
   font-size: 16px;
   line-height: 28px;
-  color: #444;
-  font-family: "brandon-grotesque", "sans-serif";
+  color: #555;
+  font-family: "Raleway", "sans-serif";
   font-weight: 200;
   text-decoration: none;
   text-transform: uppercase;
@@ -323,7 +328,7 @@ a:hover {
   @media all and (min-width: 960px) {
     .gallery__hero .portrait-portrait-portrait-portrait {
       grid-template-rows: repeat(6, 1fr);
-      grid-template-areas: ". . one one one one two two two two three three three three four four four four . ." ". . one one one one two two two two three three three three four four four four . ." ". . one one one one two two two two three three three three four four four four . ." ". . one one one one two two two two three three three three four four four four . ." ". . one one one one two two two two three three three three four four four four . ." ". . one one one one two two two two three three three three four four four four . ."; } }
+      grid-template-areas: "one one one one two two two two three three three three four four four four" "one one one one two two two two three three three three four four four four" "one one one one two two two two three three three three four four four four" "one one one one two two two two three three three three four four four four" "one one one one two two two two three three three three four four four four" "one one one one two two two two three three three three four four four four"; } }
 
 .gallery__hero .landscape-portrait {
   grid-template-rows: repeat(9, 1fr);
@@ -343,5 +348,3 @@ a:hover {
     .gallery__hero .portrait-landscape-portrait {
       grid-template-areas: ". one one one one two two two two two two two two two two three three three three ." ". one one one one two two two two two two two two two two three three three three ." ". one one one one two two two two two two two two two two three three three three ." ". one one one one two two two two two two two two two two three three three three ." ". one one one one two two two two two two two two two two three three three three ." ". one one one one two two two two two two two two two two three three three three ."; } }
 
-
-/*# sourceMappingURL=styles.chunk.css.map*/
