@@ -3,7 +3,6 @@
 
 .module__image-content {
   display: grid;
-  grid-gap: 16px;
 
   picture {
     img {
@@ -14,32 +13,51 @@
   }
 }
 
-.module__image-content__portrait {
+.module__image-content__portrait-left, .module__image-content__portrait-right {
   grid-template-areas:
     "module_image"
     "module_content";
 
-  @include bp-desktop-medium {
-    grid-template-areas: "module_image module_content";
+  // Default breakpoint for -left
+  @include bp-desktop-small {
+      grid-template-areas: "module_image module_content";
   }
 }
 
-.module__image-content__landscape {
+.module__image-content__portrait-right {
+  @include bp-desktop-small {
+      grid-template-areas: "module_content module_image";
+  }
+}
+
+.module__image-content__landscape-left, .module__image-content__landscape-right {
   grid-template-areas:
     "module_image"
     "module_content";
 }
 
+
+.module__image-content__bgcolor {
+  background-color: $primary-grey;
+}
 
 
 .module__image-content__image {
   grid-area: module_image;
   object-fit: contain;
 
+  @include bp-desktop-small {
+    min-width: 300px;
+  }
 }
 
 .module__image-content__content {
   grid-area: module_content;
   display: flex;
   justify-content: center;
+  padding: 24px;
+
+  @include bp-desktop-large {
+    padding: 40px;
+  }
 }

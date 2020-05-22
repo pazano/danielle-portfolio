@@ -5,86 +5,91 @@ const seo = {
   title: 'Home',
 }
 
-const galleryRows2 = [
-  [
-    {
-      url: '001.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
-      orientation: 'portrait',
-      aspectRatio: '2x3',
-    },
-    {
-      url: '001.jpg',
-      alt: 'Danielle at the Pink Beach on Crete',
-      orientation: 'portrait',
-      aspectRatio: '2x3',
+/*
       link: {
         target: '/images/image-detail-test',
         slug: 'images/image-detail-test',
         label: 'One'
       }
+*/
+
+const galleryRows2 = [
+  [
+    {
+      url: 'homepage/ellerou-editorial-007.jpg',
+      alt: 'Paul at the Pink Beach on Crete',
+      orientation: 'portrait',
+      aspectRatio: '2x3',
     },
     {
-      url: '001.jpg',
+      url: 'homepage/ellerou-editorial-012.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       orientation: 'portrait',
       aspectRatio: '2x3',
-      link: {
-        target: '/',
-        label: 'One'
-      }
     },
     {
-      url: '001.jpg',
+      url: 'homepage/ellerou-editorial-002.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       orientation: 'portrait',
       aspectRatio: '2x3',
-      link: {
-        target: '/',
-        label: 'One'
-      }
+    },
+    {
+      url: 'homepage/ellerou-editorial-005.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      orientation: 'portrait',
+      aspectRatio: '2x3',
     },
   ],
   [
     {
-      url: '001.jpg',
+      url: 'homepage/ellerou-editorial-011.jpg',
       alt: 'Paul at the Pink Beach on Crete',
       orientation: 'portrait',
       aspectRatio: '2x3',
-      link: {
-        target: '/',
-        label: 'One'
-      }
     },
     {
-      url: '001.jpg',
+      url: 'homepage/ellerou-editorial-008.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       orientation: 'portrait',
       aspectRatio: '2x3',
-      link: {
-        target: '/',
-        label: 'One'
-      }
     },
     {
-      url: '001.jpg',
+      url: 'homepage/ellerou-editorial-010.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       orientation: 'portrait',
       aspectRatio: '2x3',
-      link: {
-        target: '/',
-        label: 'One'
-      }
     },
     {
-      url: '001.jpg',
+      url: 'homepage/ellerou-editorial-001.jpg',
       alt: 'Danielle at the Pink Beach on Crete',
       orientation: 'portrait',
       aspectRatio: '2x3',
-      link: {
-        target: '/',
-        label: 'One'
-      }
+    },
+  ],
+  [
+    {
+      url: 'homepage/ellerou-editorial-006.jpg',
+      alt: 'Paul at the Pink Beach on Crete',
+      orientation: 'portrait',
+      aspectRatio: '2x3',
+    },
+    {
+      url: 'homepage/ellerou-editorial-004.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      orientation: 'portrait',
+      aspectRatio: '2x3',
+    },
+    {
+      url: 'homepage/ellerou-editorial-003.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      orientation: 'portrait',
+      aspectRatio: '2x3',
+    },
+    {
+      url: 'homepage/ellerou-editorial-013.jpg',
+      alt: 'Danielle at the Pink Beach on Crete',
+      orientation: 'portrait',
+      aspectRatio: '2x3',
     },
   ],
 ]

@@ -1,9 +1,9 @@
 import Image from './Image';
 import './ImageContent.scss';
 
-const ImageContent = ({ image, content }) => {
+const ImageContent = ({ image, content, imageSide="left", contentBackground=false }) => {
   return (
-    <div className={`module__image-content module__image-content__${image.orientation}`}>
+    <div className={`module__image-content module__image-content__${image.orientation}-${imageSide}`}>
       <Image
         url={image.url}
         alt={image.alt}
@@ -11,7 +11,7 @@ const ImageContent = ({ image, content }) => {
         respectAspect={true}
         style={`module__image-content__image`}
       />
-      <div className="module__image-content__content">
+      <div className={`module__image-content__content ${contentBackground && "module__image-content__bgcolor"}`}>
         <div className="module__image-content__content-inner" dangerouslySetInnerHTML={{ __html: content }} />
       </div>
     </div>

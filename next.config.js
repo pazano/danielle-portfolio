@@ -18,7 +18,7 @@ module.exports = plugins([
     optimizeImagesInDev: true,
     imagesFolder: 'images',
     mozjpeg: {
-      quality: 80,
+      quality: 100,
     },
     responsive: {
       sizes: [300, 600, 1200, 2000],
