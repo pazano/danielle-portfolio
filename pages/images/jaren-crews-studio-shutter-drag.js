@@ -2,20 +2,25 @@ import Page from '../../layout/Page';
 import ImageContent from '../../layout/components/ImageContent';
 
 const seo = {
-  title: 'Image Detail',
+  title: 'Studio Portrait Session',
+  description: '',
+  keywords: ''
 }
 
 const image = {
-  url: '001.jpg',
-  alt: 'Danielle at the Pink Beach on Crete',
+  url: 'homepage/ellerou-editorial-jaren-crews-shutter-drag.jpg',
+  alt: 'Studio Session with Jaren Crews',
   orientation: 'portrait',
   aspectRatio: '2x3',
 }
 
 const content = `
-  <p>Model:  <a href="/">@modelinstagram</a></p>
-  <p>Hair:  <a href="/">@hairinstagrame</a></p>
-  <p>Makeup:  <a href="/">@makeup_instagrame</a></p>
+<dl>
+  <dt>Photographer</dt>
+  <dd>Danielle Rouillard <a href="https://instagram.com/ellerouphoto">@ellerouphoto</a></dd>
+  <dt>Model</dt>
+  <dd>Jaren Crews <a href="https://instagram.com/real.jaren">@real.jaren</a></dd>
+</dl>
 `;
 
 

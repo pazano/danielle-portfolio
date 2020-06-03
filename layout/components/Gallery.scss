@@ -5,6 +5,7 @@ $gallery__grid-unit: 1fr;
 
 .gallery__container {
   grid-area: gallery;
+  padding: 8px;
 
   picture {
     img {
