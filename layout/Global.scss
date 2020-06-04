@@ -58,9 +58,6 @@ a {
   color: $link-text;
   text-decoration: none;
   padding-bottom: .05em;
-  border-bottom-width: 1px;
-  border-bottom-style: solid;
-  border-bottom-color: $link-text;
   transition:
     border-color .15s ease-out,
     color .15s ease-out;
@@ -73,6 +70,17 @@ a:hover {
   cursor: pointer;
 }
 
+dt {
+  color: $alt-text;
+  text-transform: uppercase;
+  margin: 24px 0px 8px 0px;
+}
+
+dd {
+  display: flex;
+  flex-flow: column nowrap;
+  margin-inline-start: 16px;
+}
 
 .content {
   display: grid;

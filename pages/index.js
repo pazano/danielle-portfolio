@@ -3,6 +3,8 @@ import Gallery from '../layout/components/Gallery';
 
 const seo = {
   title: 'Home',
+  description: '',
+  keywords: ''
 }
 
 /*
@@ -16,22 +18,34 @@ const seo = {
 const galleryRows2 = [
   [
     {
-      url: 'homepage/ellerou-editorial-007.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
+      url: 'homepage/ellerou-editorial-mikaela-katrina.jpg',
+      alt: 'Studio Beauty Portrait of Mikaela Katrina',
       orientation: 'portrait',
       aspectRatio: '2x3',
+      link: {
+        target: '/images/mikaela-katrina-studio-beauty',
+        slug: 'images/mikaela-katrina-studio-beauty',
+      }
     },
     {
-      url: 'homepage/ellerou-editorial-012.jpg',
-      alt: 'Danielle at the Pink Beach on Crete',
+      url: 'homepage/ellerou-editorial-chloe-kono.jpg',
+      alt: 'Desert Fashion Editorial at Vasquez Rocks with Chloe Kono',
       orientation: 'portrait',
       aspectRatio: '2x3',
+      link: {
+        target: '/images/chloe-kono-vasquez-rocks',
+        slug: 'images/chloe-kono-vasquez-rocks',
+      }
     },
     {
-      url: 'homepage/ellerou-editorial-002.jpg',
-      alt: 'Danielle at the Pink Beach on Crete',
+      url: 'homepage/ellerou-editorial-jaren-crews-shutter-drag.jpg',
+      alt: 'Studio Session with Jaren Crews',
       orientation: 'portrait',
       aspectRatio: '2x3',
+      link: {
+        target: '/images/jaren-crews-studio-shutter-drag',
+        slug: 'images/jaren-crews-studio-shutter-drag',
+      }
     },
     {
       url: 'homepage/ellerou-editorial-005.jpg',
