@@ -9,8 +9,8 @@ const seo = {
 
 /*
       link: {
-        target: '/images/image-detail-test',
-        slug: 'images/image-detail-test',
+        target: '/photography/image-detail-test',
+        slug: 'photography/image-detail-test',
         label: 'One'
       }
 */
@@ -19,22 +19,22 @@ const galleryRows2 = [
   [
     {
       url: 'homepage/ellerou-editorial-mikaela-katrina.jpg',
-      alt: 'Studio Beauty Portrait of Mikaela Katrina',
+      alt: 'Up close retouched image of model with neutral makeup photographed by Danielle Rouillard',
       orientation: 'portrait',
       aspectRatio: '2x3',
       link: {
-        target: '/images/mikaela-katrina-studio-beauty',
-        slug: 'images/mikaela-katrina-studio-beauty',
+        target: '/photography/dreamy-natural-glam-beauty',
+        slug: 'photography/dreamy-natural-glam-beauty',
       }
     },
     {
       url: 'homepage/ellerou-editorial-chloe-kono.jpg',
-      alt: 'Desert Fashion Editorial at Vasquez Rocks with Chloe Kono',
+      alt: 'Fashion editorial photoshoot with Asian model in California desert photographed by Danielle Rouillard',
       orientation: 'portrait',
       aspectRatio: '2x3',
       link: {
-        target: '/images/chloe-kono-vasquez-rocks',
-        slug: 'images/chloe-kono-vasquez-rocks',
+        target: '/photography/california-desert-sun-fashion',
+        slug: 'photography/california-desert-sun-fashion',
       }
     },
     {
@@ -43,8 +43,8 @@ const galleryRows2 = [
       orientation: 'portrait',
       aspectRatio: '2x3',
       link: {
-        target: '/images/jaren-crews-studio-shutter-drag',
-        slug: 'images/jaren-crews-studio-shutter-drag',
+        target: '/photography/jaren-crews-studio-shutter-drag',
+        slug: 'photography/jaren-crews-studio-shutter-drag',
       }
     },
     {

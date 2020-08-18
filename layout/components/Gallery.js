@@ -57,7 +57,7 @@ const GalleryImage = ({ image, imageKey }) => {
 // link:  {label, target, slug}
 const GalleryImageLink = ({ image, link, imageKey }) => {
   return (
-      <Link href={link.target} as={link.slug} >
+      <Link href="/photography/[slug]" as={link.target} >
         <div className={`gallery__image link ${image.style}`} key={imageKey}>
           <Image
             url={image.url}
