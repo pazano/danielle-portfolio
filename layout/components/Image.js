@@ -14,25 +14,27 @@ const buildSizeList = (responsiveLoaderObject, stretchTolerance) => {
 }
 
 
-const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
+// const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
 
-  const image = require(`../../public/images/${url}?resize`);
+  // const image = require(`../../public/images/${url}?resize`);
+
+const Image = ({ renditions, alt, aspectRatio, respectAspect, style = '' }) => {
 
   if(respectAspect) {
 
     const splitParams = aspectRatio && aspectRatio.split("x");
     const viewBoxParams = splitParams[0] + " " + splitParams[1];
 
-    const sizeList = buildSizeList(image, 20);
+    const sizeList = buildSizeList(renditions, 20);
 
     return (
       <div className={`image__respect-aspect ${style}`}>
         <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
         <picture>
           <img
-            srcSet={image.srcSet}
+            srcSet={renditions.srcSet}
             sizes={sizeList}
-            src={image.src} alt={alt} />
+            src={renditions.src} alt={alt} />
         </picture>
       </div>
     )
@@ -42,9 +44,9 @@ const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
       <div className={style}>
         <picture>
           <img
-            srcSet={image.srcSet}
+            srcSet={renditions.srcSet}
             sizes={sizeList}
-            src={image.src} alt={alt} />
+            src={renditions.src} alt={alt} />
         </picture>
       </div>
     )

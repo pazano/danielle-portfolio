@@ -22,15 +22,12 @@ const content = `
 `;
 
 
-const ImageDetailPage = ( { slug } ) => {
-  console.log(slug)
-  const imageId = Images.slugToId[slug];
-
+const ImageDetailPage = ( { image, content } ) => {
   return (
     <Page seo={seo} >
       <div className="content width__narrow">
         <ImageContent
-          image={Images.list[imageId]}
+          image={image}
           content={content}
           />
       </div>
@@ -38,9 +35,14 @@ const ImageDetailPage = ( { slug } ) => {
   );
 }
 
-ImageDetailPage.getInitialProps = async ( {query} ) => {
+ImageDetailPage.getInitialProps = async ( { query } ) => {
   const { slug }  = query;
-  return { slug };
+  const imageId = Images.slugToId[slug];
+
+  return {
+    image: Images.list[imageId],
+    content: content
+   };
 }
 
 export default ImageDetailPage;

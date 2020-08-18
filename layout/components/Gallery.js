@@ -9,9 +9,9 @@ const GalleryImageRow = ({ galleryImages, respectAspect, rowKey }) => {
   return(
     <div className={`gallery__row ${rowClassName}`} key={rowKey}>
       { galleryImages &&
-        galleryImages.map(({ url, alt, aspectRatio, link }) => {
+        galleryImages.map(({ renditions, alt, aspectRatio, link }) => {
             const image = {
-              url,
+              renditions,
               alt,
               aspectRatio,
               respectAspect,
@@ -44,7 +44,7 @@ const GalleryImage = ({ image, imageKey }) => {
   return (
     <div className={`gallery__image ${image.style}`} key={imageKey}>
       <Image
-        url={image.url}
+        renditions={image.renditions}
         alt={image.alt}
         aspectRatio={image.aspectRatio}
         respectAspect={image.respectAspect}
@@ -53,14 +53,14 @@ const GalleryImage = ({ image, imageKey }) => {
   )
 }
 
-// image:  {url, alt, style, aspectRatio, respectAspect}
+// image:  {url, renditions, alt, style, aspectRatio, respectAspect}
 // link:  {label, target, slug}
 const GalleryImageLink = ({ image, link, imageKey }) => {
   return (
       <Link href="/photography/[slug]" as={link.target} >
         <div className={`gallery__image link ${image.style}`} key={imageKey}>
           <Image
-            url={image.url}
+            renditions={image.renditions}
             alt={image.alt}
             aspectRatio={image.aspectRatio}
             respectAspect={image.respectAspect}

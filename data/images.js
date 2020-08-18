@@ -1,4 +1,4 @@
-const images = [
+const imageList = [
   {
     id: 0,
     metadata: {
@@ -7,7 +7,7 @@ const images = [
       keywords: '',
       slug: 'dreamy-natural-glam-beauty'
     },
-    image: {
+    attributes: {
       url: 'homepage/ellerou-editorial-chloe-kono.jpg',
       alt: 'Desert Fashion Editorial at Vasquez Rocks with Chloe Kono',
       orientation: 'portrait',
@@ -22,7 +22,7 @@ const images = [
       keywords: '',
       slug: 'california-desert-sun-fashion'
     },
-    image: {
+    attributes: {
       url: 'homepage/ellerou-editorial-chloe-kono.jpg',
       alt: 'Desert Fashion Editorial at Vasquez Rocks with Chloe Kono',
       orientation: 'portrait',
@@ -32,12 +32,19 @@ const images = [
   }
 ]
 
-const imageSlugToId = images.reduce((imageMap, image) => {
+const imageListWithRenditions = imageList.map((image) => {
+  const imageCopy = {...image}
+  const renditions = require(`../public/images/${imageCopy.attributes.url}?resize`);
+  imageCopy.attributes['renditions'] = renditions;
+  return imageCopy;
+})
+
+const imageSlugToId = imageList.reduce((imageMap, image) => {
   imageMap[image.metadata.slug] = image.id;
   return imageMap;
 }, {});
 
 export default {
-  list: images,
+  list: imageListWithRenditions,
   slugToId: imageSlugToId,
 }

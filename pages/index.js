@@ -7,14 +7,6 @@ const seo = {
   keywords: ''
 }
 
-/*
-      link: {
-        target: '/photography/image-detail-test',
-        slug: 'photography/image-detail-test',
-        label: 'One'
-      }
-*/
-
 const galleryRows2 = [
   [
     {
