@@ -14,4 +14,19 @@ export default {
     role: "HMUA",
     instagram: "beautybygeomendi"
   },
+  mikaela_katrina: {
+    name: "Mikaela Katrina",
+    role: "Model",
+    instagram: "mikaelakatrina"
+  },
+  hiromi_robertson: {
+    name: "Hiromi Robertson",
+    role: "HMUA",
+    instagram: "smacbeauteartistry"
+  },
+  jaren_crews: {
+    name: "Jaren Crews",
+    role: "Model",
+    instagram: "real.jaren"
+  }
 }

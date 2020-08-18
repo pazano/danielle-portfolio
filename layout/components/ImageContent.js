@@ -3,11 +3,11 @@ import './ImageContent.scss';
 
 const ImageContent = ({ image, content, imageSide="left", contentBackground=false }) => {
   return (
-    <div className={`module__image-content module__image-content__${image.attributes.orientation}-${imageSide}`}>
+    <div className={`module__image-content module__image-content__${image.orientation}-${imageSide}`}>
       <Image
-        renditions={image.attributes.renditions}
-        alt={image.attributes.alt}
-        aspectRatio={image.attributes.aspectRatio}
+        renditions={image.renditions}
+        alt={image.alt}
+        aspectRatio={image.aspectRatio}
         respectAspect={true}
         style={`module__image-content__image`}
       />

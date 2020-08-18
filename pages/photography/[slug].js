@@ -1,7 +1,7 @@
 import Page from '../../layout/Page';
 import ImageContent from '../../layout/components/ImageContent';
 
-import Images from '../../data/images';
+import ImageData from '../../data/images';
 
 const seo = {
   title: 'Dreamy Natural Glam | Beauty Photography, Los Angeles',
@@ -37,10 +37,10 @@ const ImageDetailPage = ( { image, content } ) => {
 
 ImageDetailPage.getInitialProps = async ( { query } ) => {
   const { slug }  = query;
-  const imageId = Images.slugToId[slug];
+  const imageId = ImageData.slugToId[slug];
 
   return {
-    image: Images.list[imageId],
+    image: ImageData.list[imageId],
     content: content
    };
 }
