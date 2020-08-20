@@ -1,7 +1,7 @@
 
 // TODO:  Need a structure for publishing references
 
-const imageList = [
+const portfolioImages = [
   {
     id: 0,
     metadata: {
@@ -162,19 +162,19 @@ const imageList = [
 
 ]
 
-const imageListWithRenditions = imageList.map((image) => {
+const portfolioImagesWithRenditions = portfolioImages.map((image) => {
   const imageCopy = {...image}
   const renditions = require(`../public/images/${imageCopy.url}?resize`);
   imageCopy['renditions'] = renditions;
   return imageCopy;
 })
 
-const imageSlugToId = imageList.reduce((imageMap, image) => {
+const imageSlugToId = portfolioImages.reduce((imageMap, image) => {
   imageMap[image.metadata.slug] = image.id;
   return imageMap;
 }, {});
 
 export default {
-  list: imageListWithRenditions,
+  portfolio: portfolioImagesWithRenditions,
   slugToId: imageSlugToId,
 }

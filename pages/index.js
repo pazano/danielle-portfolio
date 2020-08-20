@@ -26,7 +26,7 @@ Index.getInitialProps = async () => {
     [ 8, 9, 10, 11 ]
   ]
   // TODO: don't depend on the fact the images list is presorted
-  const galleryRows = galleryIds.map(row => row.map(id => ImageData.list[id]));
+  const galleryRows = galleryIds.map(row => row.map(id => ImageData.portfolio[id]));
 
   return {
     seo,
