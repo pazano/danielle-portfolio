@@ -28,5 +28,41 @@ export default {
     name: "Jaren Crews",
     role: "Model",
     instagram: "real.jaren"
+  },
+  kimmy_jenkins: {
+    name: "Kimmy Jenkins",
+    role: "Model",
+    instagram: "kimmy.jenks"
+  },
+  natalie_jutakeo: {
+    name: "Natalie Jutakeo",
+    role: "MUA",
+    instagram: "nataliej.makeup"
+  },
+  tay_elizabeth: {
+    name: "Tay Elizabeth",
+    role: "Model",
+    instagram: "tayelizabethsheek"
+  },
+  roxanne_paz: {
+    name: "Roxanne Paz",
+    role: "MUA",
+    instagram: "reina.roxanne"
+  },
+  rachel_ramos: {
+    name: "Rachel Ramos",
+    role: "Model",
+    instagram: "rachel_ramos"
+  },
+  ariana_yap: {
+    name: "Ariana Yap",
+    role: "Model",
+    instagram: "ariplane"
+  },
+  jayden_madise: {
+    name: "Jayden Madise",
+    role: "Model",
+    instagram: "jaydenloading"
   }
+
 }

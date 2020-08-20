@@ -66,7 +66,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "tay_elizabeth", "roxanne_paz"]
   }, {
     id: 5,
     metadata: {
@@ -79,7 +79,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "jaren_crews"]
   }, {
     id: 6,
     metadata: {
@@ -92,7 +92,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "rachel_ramos"]
   }, {
     id: 7,
     metadata: {
@@ -105,7 +105,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "tay_elizabeth", "roxanne_paz"]
   }, {
     id: 8,
     metadata: {
@@ -118,7 +118,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "ariana_yap", "hiromi_robertson"]
   }, {
     id: 9,
     metadata: {
@@ -131,7 +131,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "kimmy_jenkins", "hiromi_robertson", "natalie_jutakeo"]
   }, {
     id: 10,
     metadata: {
@@ -144,7 +144,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "jayden_madise"]
   }, {
     id: 11,
     metadata: {
@@ -157,7 +157,7 @@ const portfolioImages = [
     alt: '',
     orientation: 'portrait',
     aspectRatio: '2x3',
-    attribution: ["danielle_rouillard"]
+    attribution: ["danielle_rouillard", "tay_elizabeth", "roxanne_paz"]
   }
 
 ]
