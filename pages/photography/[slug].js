@@ -2,6 +2,7 @@ import Page from '../../layout/Page';
 import ImageContent from '../../layout/components/ImageContent';
 
 import ImageData from '../../data/images';
+import PeopleData from '../../data/people';
 
 const ImageDetailPage = ( { seo, image, content } ) => {
   return (
@@ -31,6 +32,18 @@ ImageDetailPage.getInitialProps = async ( { query } ) => {
   }
 
 
+
+  let attribution = '<dl>';
+  attribution += image.attribution.reduce((content, reference) => {
+    let record = PeopleData[reference];
+    content += `
+      <dt>${record.role}</dt>
+      <dd>${record.name} <a href="https://instagram.com/${record.instagram}">@${record.instagram}</a></dd>
+    `
+    return content;
+  }, '')
+  attribution += '</dl>'
+
   const content = `
     <dl>
       <dt>Photographer</dt>
@@ -45,7 +58,7 @@ ImageDetailPage.getInitialProps = async ( { query } ) => {
   return {
     seo,
     image,
-    content
+    content: attribution
    };
 }
 
