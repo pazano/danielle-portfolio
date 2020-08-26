@@ -2,21 +2,27 @@ import Page from '../layout/Page';
 import ImageContent from '../layout/components/ImageContent';
 import ImageData from '../data/images';
 
-const About = ( { seo, profileImage, content }) => (
-  <Page seo={seo} >
-    <div className="content width__medium">
-      <ImageContent
-        image={profileImage}
-        content={content}
-        imageSide="right"
-        contentBackground={true}
-        />
-    </div>
-  </Page>
-);
+const About = ( { seo, profileImage, content } ) => {
 
-About.getInitialProps = async () => {
+  return (
+    <Page seo={seo} >
+      <div className="content width__medium">
+        <ImageContent
+          image={profileImage}
+          content={content}
+          imageSide="right"
+          contentBackground={true}
+          />
+      </div>
+    </Page>
+  );
+};
 
+const prepContent = () => {
+
+}
+
+export async function getStaticProps() {
   const seo = {
     title: 'About',
     description: '',
@@ -40,9 +46,11 @@ About.getInitialProps = async () => {
   `;
 
   return {
-    seo,
-    profileImage,
-    content
+    props: {
+      seo,
+      profileImage,
+      content
+    }
   }
 }
 

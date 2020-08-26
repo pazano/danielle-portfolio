@@ -17,8 +17,10 @@ const ImageDetailPage = ( { seo, image, content } ) => {
   );
 }
 
-ImageDetailPage.getInitialProps = async ( { query } ) => {
-  const { slug }  = query;
+// ImageDetailPage.getInitialProps = async ( { query } ) => {
+  // const { slug } = query;
+export async function getStaticProps( { params } ) {
+  const { slug }  = params;
   const imageId = ImageData.slugToId[slug];
   const image = ImageData.portfolio[imageId];
 
@@ -31,8 +33,6 @@ ImageDetailPage.getInitialProps = async ( { query } ) => {
     url: `https://www.ellerou.com/photography/${metadata.slug}`
   }
 
-
-
   let attribution = '<dl>';
   attribution += image.attribution.reduce((content, reference) => {
     let record = PeopleData[reference];
@@ -44,22 +44,24 @@ ImageDetailPage.getInitialProps = async ( { query } ) => {
   }, '')
   attribution += '</dl>'
 
-  const content = `
-    <dl>
-      <dt>Photographer</dt>
-      <dd>Danielle Rouillard  <a href="https://instagram.com/ellerouphoto">@ellerouphoto</a></dd>
-      <dt>Model</dt>
-      <dd>Mikaela Katrina  <a href="https://instagram.com/mikaelakatrina">@mikaelakatrina</a></dd>
-      <dt>HMUA</dt>
-      <dd>Hiromi Robertson  <a href="https://instagram.com/smacbeauteartistry">@smacbeauteartistry</a></dd>
-    </dl>
-    `;
+  return {
+    props: {
+      seo,
+      image,
+      content: attribution
+    }
+   };
+}
+
+export async function getStaticPaths() {
+  const paths = ImageData.portfolio.map((image) => ({
+    params: { slug: image.metadata.slug }
+  }));
 
   return {
-    seo,
-    image,
-    content: attribution
-   };
+    paths,
+    fallback: false,
+  }
 }
 
 export default ImageDetailPage;

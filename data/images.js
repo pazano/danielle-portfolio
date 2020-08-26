@@ -182,6 +182,7 @@ const createRenditions = (imageList) => {
   return imageList.map((image) => {
     const imageCopy = {...image};
     const renditions = require(`../public/images/${imageCopy.url}?resize`);
+    delete renditions.toString;
     imageCopy['renditions'] = renditions;
     return imageCopy;
   });
