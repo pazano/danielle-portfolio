@@ -3,7 +3,7 @@ const sass  = require('@zeit/next-sass');
 const optimizedImages = require('next-optimized-images');
 
 const nextConfig = {
-  exportTrailingSlash: true,
+  trailingSlash: true,
   exportPathMap: function () {
     return {
       '/': { page: '/' },

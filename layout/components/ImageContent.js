@@ -5,7 +5,7 @@ const ImageContent = ({ image, content, imageSide="left", contentBackground=fals
   return (
     <div className={`module__image-content module__image-content__${image.orientation}-${imageSide}`}>
       <Image
-        url={image.url}
+        renditions={image.renditions}
         alt={image.alt}
         aspectRatio={image.aspectRatio}
         respectAspect={true}
