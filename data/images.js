@@ -1,6 +1,22 @@
 
 // TODO:  Need a structure for publishing references
 
+const aboutImages = [
+  {
+    placement: "profile",
+    metadata: {
+      title: '',
+      description: '',
+      keywords: '',
+      slug: ''
+    },
+    url: 'self.jpg',
+    alt: 'Danielle Rouillard standing in front of the Acropolis in Athens, Greece',
+    orientation: 'portrait',
+    aspectRatio: '2x3',
+  }
+]
+
 const portfolioImages = [
   {
     id: 0,
@@ -162,12 +178,17 @@ const portfolioImages = [
 
 ]
 
-const portfolioImagesWithRenditions = portfolioImages.map((image) => {
-  const imageCopy = {...image}
-  const renditions = require(`../public/images/${imageCopy.url}?resize`);
-  imageCopy['renditions'] = renditions;
-  return imageCopy;
-})
+const createRenditions = (imageList) => {
+  return imageList.map((image) => {
+    const imageCopy = {...image};
+    const renditions = require(`../public/images/${imageCopy.url}?resize`);
+    imageCopy['renditions'] = renditions;
+    return imageCopy;
+  });
+}
+
+const aboutImagesWithRenditions = createRenditions(aboutImages);
+const portfolioImagesWithRenditions = createRenditions(portfolioImages);
 
 const imageSlugToId = portfolioImages.reduce((imageMap, image) => {
   imageMap[image.metadata.slug] = image.id;
@@ -175,6 +196,7 @@ const imageSlugToId = portfolioImages.reduce((imageMap, image) => {
 }, {});
 
 export default {
+  about: aboutImagesWithRenditions,
   portfolio: portfolioImagesWithRenditions,
   slugToId: imageSlugToId,
 }

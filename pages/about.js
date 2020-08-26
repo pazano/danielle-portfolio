@@ -1,6 +1,6 @@
 import Page from '../layout/Page';
 import ImageContent from '../layout/components/ImageContent';
-
+import ImageData from '../data/images';
 
 const About = ( { seo, profileImage, content }) => (
   <Page seo={seo} >
@@ -24,12 +24,12 @@ About.getInitialProps = async () => {
     url: 'https://www.ellerou.com/about'
   }
 
-  const profileImage = {
-    url: 'self.jpg',
-    alt: 'Danielle live at the Acropolis',
-    orientation: 'portrait',
-    aspectRatio: '2x3',
-  }
+  const flattenPlacements = ImageData.about.reduce((reworkedObj, image) => {
+    reworkedObj[image.placement] = image;
+    return reworkedObj;
+  }, {})
+
+  const profileImage = flattenPlacements['profile'];
 
   const content = `
     <h1>About</h1>

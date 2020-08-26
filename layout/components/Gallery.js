@@ -57,8 +57,6 @@ const GalleryImage = ({ image, imageKey }) => {
 // image:  {url, renditions, alt, style, aspectRatio, respectAspect}
 // link:  {label, target, slug}
 const GalleryImageLink = ({ image, imageKey }) => {
-  console.warn('in galleryimagelink')
-  console.log(image)
   return (
       <Link href="/photography/[slug]" as={`photography/${image.slug}`} >
         <div className={`gallery__image link ${image.style}`} key={imageKey}>
