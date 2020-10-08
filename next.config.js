@@ -1,16 +1,30 @@
-const withSass = require('@zeit/next-sass');
-module.exports = withSass({
-  exportTrailingSlash: true,
+const plugins = require('next-compose-plugins');
+const sass  = require('@zeit/next-sass');
+const optimizedImages = require('next-optimized-images');
+
+const nextConfig = {
+  trailingSlash: true,
   exportPathMap: function () {
     return {
       '/': { page: '/' },
-      '/how-we-met': { page: '/how-we-met'},
-      '/our-day': { page: '/our-day' },
-      '/our-honeymoon': { page: '/our-honeymoon' },
-      '/peep-the-pics': { page: '/peep-the-pics' },
-      '/when-where': { page: '/when-where' },
-      '/faqs': { page: '/faqs' },
-      '/registry': { page: '/registry' },
     }
   }
-});
+}
+
+module.exports = plugins([
+  [sass],
+  [optimizedImages, {
+    handleImages: ['jpeg'],
+    optimizeImagesInDev: true,
+    imagesFolder: 'images',
+    mozjpeg: {
+      quality: 100,
+    },
+    responsive: {
+      sizes: [300, 600, 1200, 2000],
+      placeholder: true,
+      placeholderSize: 50,
+      adapter: require('responsive-loader/sharp')
+    }
+  }]
+], nextConfig);

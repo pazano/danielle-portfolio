@@ -10,7 +10,7 @@ const TitleCard = ({ title, image, lede }) => {
         <div className="titlecard">
           <h1>{ title }</h1>
           <div className="titlecard__image" style={imageStyle}></div>
-          <p>{ lede }</p>
+          {lede ? `<p>${lede}</p>` : ''}
         </div>
       </div>
     )
@@ -19,7 +19,7 @@ const TitleCard = ({ title, image, lede }) => {
       <div className="content padding__low">
         <div className="titlecard">
           <h1>{title}</h1>
-          <p>{lede}</p>
+          {lede ? `<p>${lede}</p>` : ''}
         </div>
       </div>
     )

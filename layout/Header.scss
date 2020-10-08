@@ -29,11 +29,15 @@
   }
 }
 .logo h1 {
-  font-family: $ff-title;
+  font-family: $ff-headline;
   font-size: 14px;
   text-transform: uppercase;
   font-weight: 400;
   letter-spacing: 4.25px;
+
+  span {
+    color: $alt-text;
+  }
 
   @include bp-tablet {
     font-size: 17px;

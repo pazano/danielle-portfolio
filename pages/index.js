@@ -1,60 +1,40 @@
 import Page from '../layout/Page';
 import Gallery from '../layout/components/Gallery';
 
-const seo = {
-  title: 'Home',
-}
+import ImageData from '../data/images';
 
-const galleryRows = [
-  [
-    {
-      url: '/images/fpo/010.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3'
-    },
-    {
-      url: '/images/fpo/012.jpg',
-      alt: 'Danielle at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3'
-    },
-    {
-      url: '/images/fpo/001.jpg',
-      alt: 'Danielle at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3'
-    },
-  ],
-]
-
-const galleryRows2 = [
-  [
-    {
-      url: '/images/fpo/013.jpg',
-      alt: 'Paul at the Pink Beach on Crete',
-      aspect: 'landscape',
-      ratio: '3x2'
-    },
-    {
-      url: '/images/fpo/012.jpg',
-      alt: 'Danielle at the Pink Beach on Crete',
-      aspect: 'portrait',
-      ratio: '2x3'
-    },
-  ],
-]
-
-
-const Index = () => (
-  <Page seo={seo} >
-    <div className="content__gallery">
+const Index = ( { seo, galleryImages } ) => {
+  return (
+    <Page seo={seo} >
       <Gallery
-        galleryRows={galleryRows2}
-        displayType="full"
+        galleryRows={galleryImages}
+        type="hero"
+        withLinks={true}
         />
-    </div>
-  </Page>
-);
+    </Page>
+  );
+};
+
+export async function getStaticProps() {
+  const seo = {
+    title: 'Home',
+    description: '',
+    keywords: ''
+  }
+  const galleryIds = [
+    [0, 1, 2, 3],
+    [4, 5, 6, 7],
+    [8, 9, 10, 11]
+  ]
+  // TODO: don't depend on the fact the images list is presorted
+  const galleryRows = galleryIds.map(row => row.map(id => ImageData.portfolio[id]));
+
+  return {
+    props: {
+      seo,
+      galleryImages: galleryRows
+    }
+  }
+}
 
 export default Index;
