@@ -61,116 +61,116 @@ const portfolioImages = [
     id: 3,
     metadata: {
       title: 'Vintage Desert Neutrals | Los Angeles Fashion Editorial',
-      description: '',
-      keywords: '',
+      description: 'Editorial fashion portrait of model in southern California desert in vintage neutral tone clothing',
+      keywords: 'los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, male model studio photoshoot, black male model, black male model los angeles, double exposure black male model, double exposure editorial photography',
       slug: 'vintage-desert-neutrals-fashion'
     },
     url: 'homepage/ellerou-editorial-003.jpg',
-    alt: '',
+    alt: 'Ethnic high fashion model in dress shot at Vasquez Rocks California desert preserve by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "kimmy_jenkins", "hiromi_robertson", "natalie_jutakeo"]
   }, {
     id: 4,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-004'
+      title: 'Ebb & Flow | Oceanside Ethereal Editorial',
+      description: 'Editorial fashion portrait of model in southern California Santa Monica Beach wearing high end luxury clothing as the waves serenely crash over the moss covered rocks',
+      keywords: 'black model los angeles fashion photography, santa monica fashion photography, luxury fashion photography, luxury fashion los angeles, luxury fashion photographer, ethereal fashion photographer, los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, female model studio photoshoot, black female model, black woman model los angeles',
+      slug: 'ethereal-ocean-summer-fashion'
     },
     url: 'homepage/ellerou-editorial-004.jpg',
-    alt: '',
+    alt: 'Ethereal beach photo of black female model in the waves crashing over mossy rock by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "tay_elizabeth", "roxanne_paz"]
   }, {
     id: 5,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-005'
+      title: 'Male Beauty | Studio Portraiture',
+      description: 'Up close beauty portrait of black male model shot in Los Angeles Studio by Danielle Rouillard',
+      keywords: 'black model in studio beauty portrait, los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, male model studio photoshoot, black male model, black male model los angeles, skin retouching los angeles',
+      slug: 'black-male-beauty-jaren'
     },
     url: 'homepage/ellerou-editorial-005.jpg',
-    alt: '',
+    alt: 'In studio high end up close beauty photography of a black male model by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "jaren_crews"]
   }, {
     id: 6,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-006'
+      title: 'Cool Cool Summer | Beach Fashion Editorial',
+      description: 'Editorial fashion portrait of latina model captured in the warm golden hour beach sunset by Los Angeles photographer Danielle Rouillard',
+      keywords: 'latina female model los angeles, latina fashion photography los angeles, latina editorial beach fashion, latina editorial photography los angeles, latina fashion model at california beach, golden hour editorial photography, los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer',
+      slug: 'golden-summer-minimalism'
     },
     url: 'homepage/ellerou-editorial-006.jpg',
-    alt: '',
+    alt: 'In studio double exposure beauty photography of a black male model by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "rachel_ramos"]
   }, {
     id: 7,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-007'
+      title: 'Ebb & Flow | Oceanside Ethereal Editorial',
+      description: 'Editorial fashion portrait of model in southern California Santa Monica Beach wearing high end luxury clothing photographed by Danielle Rouillard',
+      keywords: 'black model los angeles fashion photography, santa monica fashion photography, luxury fashion photography, luxury fashion los angeles, luxury fashion photographer, ethereal fashion photographer, los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, female model studio photoshoot, black female model, black woman model los angeles',
+      slug: 'ethereal-ocean-summer-fashion-2'
     },
     url: 'homepage/ellerou-editorial-007.jpg',
-    alt: '',
+    alt: 'Ethereal beach photo of black female model at a southern california beach by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "tay_elizabeth", "roxanne_paz"]
   }, {
     id: 8,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-008'
+      title: 'Neutral Glam | In Studio Beauty Photography',
+      description: 'Editorial beauty portrait of latina fashion model shot in Los Angeles, CA by photographer Danielle Rouillard',
+      keywords: 'high end retouching los angeles, latina beauty portrait, revlon beauty portrait, fenty beauty photo, fenty model photography, CVS makeup photography, beauty makeup photographer in LA, latina model los angeles beauty photography, santa monica beauty photography, luxury beauty photography, luxury beauty los angeles, luxury fashion photographer, ethereal fashion photographer, los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, female model studio photoshoot, los angeles latina female model, latina beauty model',
+      slug: 'in-studio-latina-neutral-beauty'
     },
     url: 'homepage/ellerou-editorial-008.jpg',
-    alt: '',
+    alt: 'Up close high end skin retouched beauty portrait of latina model by Los Angeles Photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "ariana_yap", "hiromi_robertson"]
   }, {
     id: 9,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-009'
+      title: 'Vintage Desert Neutrals | Los Angeles Fashion Editorial',
+      description: 'Editorial up close fashion portrait of model in southern California desert in vintage neutral tone clothing',
+      keywords: 'os angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, male model studio photoshoot, black male model, black male model los angeles, double exposure black male model, double exposure editorial photography',
+      slug: 'vintage-desert-neutrals-beauty'
     },
     url: 'homepage/ellerou-editorial-009.jpg',
-    alt: '',
+    alt: 'In studio double exposure beauty photography of a black male model by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "kimmy_jenkins", "hiromi_robertson", "natalie_jutakeo"]
   }, {
     id: 10,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-010'
+      title: 'Desert Summer | Los Angeles Male Fashion Editorial',
+      description: 'Editorial fashion portrait of black male model in southern California desert shot on film by Danielle Rouillard',
+      keywords: 'editorial film photographer, film fashion photographer los angeles, los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, male model studio photoshoot, black male model, black male model los angeles, double exposure black male model, double exposure editorial photography',
+      slug: 'desert-male-teen-fashion'
     },
     url: 'homepage/ellerou-editorial-010.jpg',
-    alt: '',
+    alt: 'Teen fashion photography in the Los Angeles desert of a black male model by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "jayden_madise"]
   }, {
     id: 11,
     metadata: {
-      title: '',
-      description: '',
-      keywords: '',
-      slug: 'image-011'
+      title: 'Ebb & Flow | Oceanside Ethereal Editorial',
+      description: 'Editorial fashion portrait of model in southern California Santa Monica Beach wearing high end luxury clothing as the waves serenely crash over the moss covered rocks',
+      keywords: 'black model los angeles fashion photography, santa monica fashion photography, luxury fashion photography, luxury fashion los angeles, luxury fashion photographer, ethereal fashion photographer, los angeles fashion photographer, los angeles commercial photography, los angeles commercial fashion photographer, los angeles commercial fashion photography, southern california beauty photographer, los angeles portrait photographer, in studio double exposure photography, west la studio photographer, west los angeles portrait photographer, los angeles model photographer, female model studio photoshoot, black female model, black woman model los angeles, fashion mirror photography, emotive editorial photography',
+      slug: 'ethereal-ocean-summer-fashion-3'
     },
     url: 'homepage/ellerou-editorial-011.jpg',
-    alt: '',
+    alt: 'Ethereal beach photo of black female model in the waves crashing over mossy rock by photographer Danielle Rouillard',
     orientation: 'portrait',
     aspectRatio: '2x3',
     attribution: ["danielle_rouillard", "tay_elizabeth", "roxanne_paz"]
