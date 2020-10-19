@@ -51,7 +51,15 @@ class Navigation extends Component {
               key={item.key}
             />
           ))}
+          <div className="navigation__menu-item">
+            <Link href="https://instagram.com/ellerouphoto">
+              <a className="instagram_link">
+                  @ellerouphoto
+              </a>
+            </Link>
+          </div>
         </div>
+
       </div>
     );
   }
