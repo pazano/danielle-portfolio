@@ -1,5 +1,6 @@
 import Page from '../layout/Page';
 import ImageContent from '../layout/components/ImageContent';
+import CTA from '../layout/components/CTA';
 import ImageData from '../data/images';
 
 const About = ( { seo, profileImage, content } ) => {
@@ -13,14 +14,15 @@ const About = ( { seo, profileImage, content } ) => {
           imageSide="right"
           contentBackground={true}
           />
+        <CTA
+          title='Connect with Danielle'
+          label='Send an Email'
+          target='mailto:hello@daniellerouillard.com'
+        />
       </div>
     </Page>
   );
 };
-
-const prepContent = () => {
-
-}
 
 export async function getStaticProps() {
   const seo = {
