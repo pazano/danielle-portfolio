@@ -1,11 +1,11 @@
-import Image from './Image';
+import { default as LocalImage } from './ImageComponent';
 import './ImageContent.scss';
 
 const ImageContent = ({ image, content, imageSide="left", contentBackground=false }) => {
   return (
     <div className={`module__image-content module__image-content__${image.orientation}-${imageSide}`}>
-      <Image
-        renditions={image.renditions}
+      <LocalImage
+        url={image.url}
         alt={image.alt}
         aspectRatio={image.aspectRatio}
         respectAspect={true}
