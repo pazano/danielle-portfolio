@@ -23,14 +23,14 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) =>
               return(
                 <GalleryImageLink
                   image={image}
-                  imageKey={`gallery-image-${++counter}`}
+                  key={`gallery-image-${++counter}`}
                 />
               )
             } else {
               return(
                 <GalleryImage
                   image={image}
-                  imageKey={`gallery-image-${++counter}`}
+                  key={`gallery-image-${++counter}`}
                 />
               )
             }
@@ -94,7 +94,7 @@ const Gallery = ({ galleryRows, type="page", withLinks=false, visibleLinks=false
               galleryImages={images}
               respectAspect={respectAspect}
               withLinks={withLinks}
-              rowKey={`gallery-image-row-${++rowCounter}`}
+              key={`gallery-image-row-${++rowCounter}`}
             />)
         }
       </div>
