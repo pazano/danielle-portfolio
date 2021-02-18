@@ -13,11 +13,6 @@ const buildSizeList = (responsiveLoaderObject, stretchTolerance) => {
   }, "")
 }
 
-
-// const Image = ({ url, alt, aspectRatio, respectAspect, style='' }) => {
-
-  // const image = require(`../../public/images/${url}?resize`);
-
 const Image = ({ renditions, alt, aspectRatio, respectAspect, style = '' }) => {
 
   if(respectAspect) {
