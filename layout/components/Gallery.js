@@ -1,18 +1,18 @@
 import Link from 'next/link';
-import ImageComponent from './ImageComponent';
+import Image from './Image';
 import './Gallery.scss';
 
-const GalleryImageRow = ({ galleryImages, respectAspect, withLinks }) => {
+const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) => {
 
   const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '-' + galleryImage.orientation : galleryImage.orientation, "");
 
   let counter = 0;
   return(
-    <div className={`gallery__row ${rowClassName}`}>
+    <div className={`gallery__row ${rowClassName}`} key={rowKey}>
       { galleryImages &&
-        galleryImages.map(({ url, alt, aspectRatio, metadata }) => {
+        galleryImages.map(({ renditions, alt, aspectRatio, metadata }) => {
             const image = {
-              url,
+              renditions,
               alt,
               aspectRatio,
               slug: metadata.slug,
@@ -23,14 +23,14 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks }) => {
               return(
                 <GalleryImageLink
                   image={image}
-                  key={`gallery-image-${++counter}`}
+                  imageKey={`gallery-image-${++counter}`}
                 />
               )
             } else {
               return(
                 <GalleryImage
                   image={image}
-                  key={`gallery-image-${++counter}`}
+                  imageKey={`gallery-image-${++counter}`}
                 />
               )
             }
@@ -41,11 +41,11 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks }) => {
   )
 }
 
-const GalleryImage = ({ image }) => {
+const GalleryImage = ({ image, imageKey }) => {
   return (
-    <div className={`gallery__image ${image.style}`} >
-      <ImageComponent
-        url={image.url}
+    <div className={`gallery__image ${image.style}`} key={imageKey}>
+      <Image
+        renditions={image.renditions}
         alt={image.alt}
         aspectRatio={image.aspectRatio}
         respectAspect={image.respectAspect}
@@ -56,12 +56,12 @@ const GalleryImage = ({ image }) => {
 
 // image:  {url, renditions, alt, style, aspectRatio, respectAspect}
 // link:  {label, target, slug}
-const GalleryImageLink = ({ image }) => {
+const GalleryImageLink = ({ image, imageKey }) => {
   return (
       <Link href="/photography/[slug]" as={`photography/${image.slug}`} >
-        <div className={`gallery__image link ${image.style}`} >
-          <ImageComponent
-            url={image.url}
+        <div className={`gallery__image link ${image.style}`} key={imageKey}>
+          <Image
+            renditions={image.renditions}
             alt={image.alt}
             aspectRatio={image.aspectRatio}
             respectAspect={image.respectAspect}
@@ -94,7 +94,7 @@ const Gallery = ({ galleryRows, type="page", withLinks=false, visibleLinks=false
               galleryImages={images}
               respectAspect={respectAspect}
               withLinks={withLinks}
-              key={`gallery-image-row-${++rowCounter}`}
+              rowKey={`gallery-image-row-${++rowCounter}`}
             />)
         }
       </div>
