@@ -1,40 +1,29 @@
+import { builder, BuilderComponent, Builder } from '@builder.io/react';
+
 import Page from '../layout/Page';
-import Gallery from '../layout/components/Gallery';
 
-import ImageData from '../data/images';
-
-const Index = ( { seo, galleryImages } ) => {
-  return (
-    <Page seo={seo} >
-      <Gallery
-        galleryRows={galleryImages}
-        type="hero"
-        withLinks={true}
-        />
-    </Page>
-  );
-};
-
-export async function getStaticProps() {
-  const seo = {
-    title: 'Home',
+const Index = (props) => (
+  <Page seo={{
+    title: 'test',
     description: '',
     keywords: ''
-  }
-  const galleryIds = [
-    [0, 1, 2, 3],
-    [4, 5, 6, 7],
-    [8, 9, 10, 11]
-  ]
-  // TODO: don't depend on the fact the images list is presorted
-  const galleryRows = galleryIds.map(row => row.map(id => ImageData.portfolio[id]));
-
-  return {
-    props: {
-      seo,
-      galleryImages: galleryRows
-    }
-  }
-}
+  }}>
+    {props.content || Builder.isPreviewing ?
+      <BuilderComponent
+        content={props.content}
+        model="page" />
+      : <>Foobar</>}
+  </Page>
+)
 
 export default Index;
+
+export const getStaticProps = async () => {
+  const content = await builder.get('page', { url: '/index' }).promise();
+
+  return {
+    props: { content },
+    revalidate: true,
+    notFound: !content
+  }
+}
