@@ -1,6 +1,7 @@
 import { builder, BuilderComponent, Builder } from '@builder.io/react';
 
 import Page from '../layout/Page';
+import '../layout/components/BuilderComponents';
 
 const BuilderPage = (props) => (
   <Page seo={{
