@@ -1,5 +1,7 @@
+import styles from './Footer.module.scss';
+
 const Footer = () => (
-  <div className="footer">
+  <div className={styles.footer}>
     <h4>&copy; Danielle Rouillard {new Date().getFullYear()}</h4>
   </div>
 );

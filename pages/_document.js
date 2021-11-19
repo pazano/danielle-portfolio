@@ -2,7 +2,7 @@ import React from 'react';
 import Document, { Html, Head, Main, NextScript } from 'next/document';
 import { builder } from '@builder.io/react';
 
-import { GA_TRACKING_ID } from '../lib/tracking'
+import { GA_TRACKING_ID } from '../lib/tracking';
 
 builder.init('25313235faa6499da368b5b3d484986b');
 

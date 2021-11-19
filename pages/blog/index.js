@@ -20,7 +20,6 @@ export async function getStaticProps() {
   return {
     props: {
       seo,
-      galleryImages: galleryRows
     }
   }
 }

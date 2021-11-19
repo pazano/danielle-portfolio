@@ -15,20 +15,21 @@
     "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "@fortawesome/react-fontawesome": "^0.1.9",
     "@tryghost/content-api": "^1.5.13",
-    "@zeit/next-css": "^1.0.1",
-    "@zeit/next-sass": "^1.0.1",
     "imagemin-mozjpeg": "^8.0.0",
     "install-peers": "^1.0.3",
-    "next": "^10.0.0",
+    "next": "^12.0.0",
     "next-compose-plugins": "^2.2.0",
     "next-optimized-images": "^2.6.0",
     "node-sass": "^4.13.1",
     "react": "^17.0.0",
-    "react-dom": "^16.13.1",
-    "react-scroll-parallax": "^2.3.2",
-    "responsive-loader": "^1.2.0"
+    "react-dom": "^17.0.0",
+    "responsive-loader": "^1.2.0",
+    "sass": "^1.43.4"
   },
   "devDependencies": {
-    "sharp": "^0.25.2"
+    "duplicate-package-checker-webpack-plugin": "^3.0.0",
+    "sharp": "^0.25.2",
+    "webpack": "^5.64.1",
+    "webpack-cli": "^4.9.1"
   }
 }

@@ -4,12 +4,12 @@ import Meta from './Meta.js';
 import Header from './Header.js';
 import Footer from './Footer.js';
 
-import './Page.scss';
+import styles from './Page.module.scss';
 
 export default withRouter( ({ seo, children }) => (
-    <div className="main">
+    <div className={styles.main}>
         <Meta seo={seo} />
-        <div className="page">
+        <div className={styles.page}>
           <Header />
             { children }
           <Footer />

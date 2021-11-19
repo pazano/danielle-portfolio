@@ -1,5 +1,5 @@
 import Page from '../layout/Page';
-import Gallery from '../layout/components/Gallery';
+import Gallery from '../layout/components/Gallery/Gallery';
 
 import ImageData from '../data/images';
 
