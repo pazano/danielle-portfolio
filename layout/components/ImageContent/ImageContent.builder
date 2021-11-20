@@ -7,23 +7,9 @@ Builder.registerComponent(ImageContent,
     image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/view-split.svg',
     inputs: [
       {
-        name: 'image',
-        type: 'file',
-        helperText: 'File types: .jpeg .png',
-        allowedFileTypes: ['jpeg', 'png'],
-      },
-      {
-        name: 'orientation',
-        type: 'string',
-        enum: ['portrait', 'landscape']
-      },
-      {
-        name: 'respectAspect',
-        type: 'boolean',
-      },
-      {
-        name: 'content',
-        type: 'string'
+        name: 'portfolioImage',
+        type: 'reference',
+        modelId: '62250208cae5453095dbaf4bd9c43a31',
       },
       {
         name: 'imageSide',
