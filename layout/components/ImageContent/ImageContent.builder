@@ -18,6 +18,10 @@ Builder.registerComponent(ImageContent,
         enum: ['portrait', 'landscape']
       },
       {
+        name: 'respectAspect',
+        type: 'boolean',
+      },
+      {
         name: 'content',
         type: 'string'
       },

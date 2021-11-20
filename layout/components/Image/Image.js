@@ -1,10 +1,18 @@
 import './Image.module.scss';
 
+const renditionWidths = [300, 600, 1200, 2000]
+const stretchTolerance = 20;
 
-const buildSizeList = (responsiveLoaderObject, stretchTolerance) => {
+const buildSrcSet = (imageUrl, renditionWidths) => {
+  return renditionWidths.reduce((srcSet, width) => {
+    return srcSet + `${imageUrl}?width=${width} ${width}w, `;
+  }, "")
+}
+
+const buildSizeList = (renditionWidths, stretchTolerance) => {
   let counter = 1;
-  return responsiveLoaderObject.images.reduce((sizeList, {width}) => {
-    if(counter == responsiveLoaderObject.images.length) {
+  return renditionWidths.reduce((sizeList, width) => {
+    if(counter == renditionWidths.length) {
       return sizeList + `${width}px`;
     } else {
       counter++;
@@ -13,23 +21,24 @@ const buildSizeList = (responsiveLoaderObject, stretchTolerance) => {
   }, "")
 }
 
-const Image = ({ renditions, alt, aspectRatio, respectAspect, style = '' }) => {
+const Image = ({ src, alt, aspectRatio, respectAspect, style = '' }) => {
+
+  const srcSet = buildSrcSet(src, renditionWidths);
+  const sizeList = buildSizeList(renditionWidths, stretchTolerance);
 
   if(respectAspect) {
 
     const splitParams = aspectRatio && aspectRatio.split("x");
     const viewBoxParams = splitParams[0] + " " + splitParams[1];
 
-    const sizeList = buildSizeList(renditions, 20);
-
     return (
-      <div className={`image__respect-aspect ${style}`}>
+      <div className={`${styles.image__respect_aspect} ${style}`}>
         <svg viewBox={`0 0 ${viewBoxParams}`}></svg>
         <picture>
           <img
-            srcSet={renditions.srcSet}
+            srcSet={srcSet}
             sizes={sizeList}
-            src={renditions.src} alt={alt} />
+            src={src} alt={alt} />
         </picture>
       </div>
     )
@@ -39,9 +48,9 @@ const Image = ({ renditions, alt, aspectRatio, respectAspect, style = '' }) => {
       <div className={style}>
         <picture>
           <img
-            srcSet={renditions.srcSet}
+            srcSet={srcSet}
             sizes={sizeList}
-            src={renditions.src} alt={alt} />
+            src={src} alt={alt} />
         </picture>
       </div>
     )
