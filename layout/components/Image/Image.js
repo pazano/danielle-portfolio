@@ -1,4 +1,4 @@
-import './Image.module.scss';
+import styles from './Image.module.scss';
 
 const renditionWidths = [300, 600, 1200, 2000]
 const stretchTolerance = 20;

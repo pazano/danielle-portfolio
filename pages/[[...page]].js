@@ -3,7 +3,7 @@ import { builder, BuilderComponent, Builder } from '@builder.io/react';
 import Page from '../layout/Page';
 import '../layout/components/BuilderComponents';
 
-// builder.init('25313235faa6499da368b5b3d484986b');
+builder.init('25313235faa6499da368b5b3d484986b');
 
 const BuilderPage = (props) => {
 
@@ -16,7 +16,9 @@ const BuilderPage = (props) => {
       {( props.content || Builder.isPreviewing ) ? (
         <BuilderComponent
           content={props.content}
-          model="page" />
+          model="page"
+          options={{ includeRefs: true }}
+         />
       )
       : null}
     </Page>
@@ -36,9 +38,8 @@ export const getStaticProps = async ( { params }) => {
 
   const content = await builder.get('page', {
     url: formattedPageUrl,
+    includeRefs: true,
   }).promise();
-
-  console.log(`getStaticProps for ${formattedPageUrl}`);
 
   return {
     props: { content },

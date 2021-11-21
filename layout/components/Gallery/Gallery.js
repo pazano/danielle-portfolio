@@ -10,10 +10,10 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) =>
   return(
     <div className={`${styles.gallery__row} ${styles[rowClassName]}`} key={rowKey}>
       { galleryImages &&
-        galleryImages.map(({ renditions, alt, aspectRatio, metadata }) => {
-            const image = {
-              renditions,
-              alt,
+        galleryImages.map(({ src, altText, aspectRatio, metadata }) => {
+            const imageData = {
+              src,
+              alt: altText,
               aspectRatio,
               slug: metadata.slug,
               respectAspect,
@@ -22,14 +22,14 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) =>
             if (withLinks) {
               return(
                 <GalleryImageLink
-                  image={image}
+                  image={imageData}
                   imageKey={`gallery-image-${++counter}`}
                 />
               )
             } else {
               return(
                 <GalleryImage
-                  image={image}
+                  image={imageData}
                   imageKey={`gallery-image-${++counter}`}
                 />
               )
@@ -42,10 +42,11 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) =>
 }
 
 const GalleryImage = ({ image, imageKey }) => {
+
   return (
     <div className={`${styles.gallery__image} ${styles[image.style]}`} key={imageKey}>
       <Image
-        renditions={image.renditions}
+        src={image.src}
         alt={image.alt}
         aspectRatio={image.aspectRatio}
         respectAspect={image.respectAspect}
@@ -61,7 +62,7 @@ const GalleryImageLink = ({ image, imageKey }) => {
       <Link href="/photography/[slug]" as={`photography/${image.slug}`} >
         <div className={`${styles.gallery__image} ${styles.link} ${styles[image.style]}`} key={imageKey}>
           <Image
-            renditions={image.renditions}
+            src={image.src}
             alt={image.alt}
             aspectRatio={image.aspectRatio}
             respectAspect={image.respectAspect}
@@ -76,7 +77,37 @@ const GalleryImageLink = ({ image, imageKey }) => {
 //    Type indicates layout width -- Hero uses smaller gutters than Page
 //    Links looks to display a label and link over Gallery entries
 
-const Gallery = ({ galleryRows, type="page", withLinks=false, visibleLinks=false }) => {
+const Gallery = ({ galleryImages, type="page", withLinks=true, visibleLinks=false }) => {
+
+  // convert list of images to rows based on aspect ratios
+  let rowWeight = 0; // every row adds to four - landscape counts as 2
+  let currentRow = [];
+
+  const galleryRows = galleryImages.reduce((rowList, { image }) => {
+
+    image = image.value.data;
+    image.src = image.image;
+    image.aspectRatio = image.orientation == 'portrait' ? '2x3' : '3x2';
+    rowWeight = image.orientation == 'portrait' ? rowWeight + 1 : rowWeight + 2;
+
+    if(rowWeight == 4) {
+      currentRow.push(image);
+      rowList.push(currentRow);
+      rowWeight = 0;
+      currentRow = [];
+      return rowList;
+    } else if (rowWeight > 4) {
+      // cuts off the previous row early since we added a weight of 2 to a 3-weight row
+      rowList.push(currentRow);
+      rowWeight = 2;
+      currentRow = [];
+      currentRow.push(image);
+      return rowList;
+    } else {
+      currentRow.push(image);
+      return rowList;
+    }
+  }, []);
 
   //  Test for aspects in the list, disable strict aspect management if mixed
   const respectAspect = galleryRows.reduce(((result, row) => {
