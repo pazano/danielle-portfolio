@@ -1,29 +1,11 @@
 import Image from '../Image/Image';
 import styles from './ImageContent.module.scss';
 
-const ImageContent = ({portfolioImage, imageSide, contentBackground=false}) => {
-  let { image, orientation, altText, attributions} = portfolioImage.value.data;
-
-  // TODO:  attribution references do not contain the object information
-
-  // console.log(attributions)
-
-  // let attributionPrep = attributions.map((attribution) => {
-  //   let counter = 1;
-  //   attribution.rolesList = attribution.role.reduce((rolesList, role) => {
-  //     if(counter == attribution.role.length) {
-  //       return rolesList + role;
-  //     }
-  //     else{
-  //       counter++;
-  //       return rolesList + role + ', ';
-  //     }
-  //   })
-  //   return attribution;
-  // })
-
+const ImageContent = ({image, altText, title, copy, orientation, imageSide, columnWidth, contentBackground=false}) => {
+  const titleMarkup = title ? <h3>{title}</h3> : '';
+  const copyMarkup = copy ? <div dangerouslySetInnerHTML={{ __html: copy }} /> : '';
   return (
-    <div className="content width__narrow">
+    <div className={`content width__${columnWidth}`}>
       <div className={`${styles.module__image_content} ${styles['module__image_content__' + orientation + '_' + imageSide]}`}>
         <Image
           src={image}
@@ -34,10 +16,8 @@ const ImageContent = ({portfolioImage, imageSide, contentBackground=false}) => {
         />
         <div className={`${styles.module__image_content__content} ${contentBackground ? styles.module__image_content__bgcolor : ''}`}>
           <div className={styles.module__image_content__content_inner} >
-            <dl>
-              <dt>photographer, retoucher</dt>
-              <dd>Danielle Rouillard <a href="https://instagram.com/ellerouphoto">@ellerouphoto</a></dd>
-            </dl>
+              {titleMarkup}
+              {copyMarkup}
           </div>
         </div>
       </div>

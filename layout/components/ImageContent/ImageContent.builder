@@ -7,9 +7,28 @@ Builder.registerComponent(ImageContent,
     image: 'https://unpkg.com/css.gg@2.0.0/icons/svg/view-split.svg',
     inputs: [
       {
-        name: 'portfolioImage',
-        type: 'reference',
-        modelId: '62250208cae5453095dbaf4bd9c43a31',
+        name: 'image',
+        type: 'file',
+        copyOnAdd: false,
+        allowedFiletypes: [ 'jpeg', 'png' ]
+      },
+      {
+        name: 'altText',
+        type: 'string'
+      },
+      {
+        name: 'title',
+        type: 'string'
+      },
+      {
+        name: 'copy',
+        type: 'richText'
+      },
+      {
+        name: 'orientation',
+        type: 'string',
+        defaultValue: 'portrait',
+        enum: [ 'portrait', 'landscape' ]
       },
       {
         name: 'imageSide',
@@ -20,6 +39,12 @@ Builder.registerComponent(ImageContent,
           'left',
           'right'
         ]
+      },
+      {
+        name: 'columnWidth',
+        type: 'string',
+        defaultValue: 'medium',
+        enum: [ 'narrow', 'medium', 'wide' ]
       },
       {
         name: 'contentBackground',

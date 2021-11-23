@@ -1,6 +1,10 @@
+import { hydrateImageList } from '../../../lib/builder_helpers';
+
 import Link from 'next/link';
 import Image from '../Image/Image';
 import styles from './Gallery.module.scss';
+import { useState, useEffect } from 'react';
+import { Builder } from '@builder.io/sdk';
 
 const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) => {
 
@@ -55,8 +59,6 @@ const GalleryImage = ({ image, imageKey }) => {
   )
 }
 
-// image:  {url, renditions, alt, style, aspectRatio, respectAspect}
-// link:  {label, target, slug}
 const GalleryImageLink = ({ image, imageKey }) => {
   return (
       <Link href="/photography/[slug]" as={`photography/${image.slug}`} >
@@ -79,12 +81,22 @@ const GalleryImageLink = ({ image, imageKey }) => {
 
 const Gallery = ({ galleryImages, type="page", withLinks=true, visibleLinks=false }) => {
 
+  // ensure the image records have data in Builder preview
+  const [imageList, setImageList] = useState(galleryImages);
+
+  useEffect(() => {
+    async function setImageDataForPreview() {
+      const hydratedImages = await hydrateImageList(galleryImages);
+      hydratedImages && setImageList(hydratedImages);
+    }
+    Builder.isPreviewing && setImageDataForPreview();
+  }, [imageList])
+
   // convert list of images to rows based on aspect ratios
   let rowWeight = 0; // every row adds to four - landscape counts as 2
   let currentRow = [];
 
-  const galleryRows = galleryImages.reduce((rowList, { image }) => {
-
+  const galleryRows = imageList.reduce((rowList, {image}) => {
     image = image.value.data;
     image.src = image.image;
     image.aspectRatio = image.orientation == 'portrait' ? '2x3' : '3x2';
