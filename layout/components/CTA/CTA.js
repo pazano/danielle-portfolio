@@ -1,10 +1,13 @@
-import './CTA.module.scss';
+import styles from './CTA.module.scss';
 
-const CTA = ({ title, label, target }) => {
+const CTA = ({ title, label, linkType, url, columnWidth }) => {
+  let linkProtocol = linkType == 'http' ? 'https://' : linkType == 'tel' ? 'tel:' : 'mailto:';
   return(
-    <div className="cta__block">
-      <h3>{title}</h3>
-      <a className="cta__action" href={target}>{ label }</a>
+    <div className={`content width__${columnWidth}`}>
+      <div className={`${styles.cta__block} ${styles.background__blush}`}>
+        <h3>{title}</h3>
+        <a className={styles.cta__action} href={`${linkProtocol}${url}`}>{ label }</a>
+      </div>
     </div>
   )
 }

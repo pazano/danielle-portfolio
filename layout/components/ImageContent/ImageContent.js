@@ -2,7 +2,7 @@ import Image from '../Image/Image';
 import styles from './ImageContent.module.scss';
 
 const ImageContent = ({image, altText, title, copy, orientation, imageSide, columnWidth, contentBackground=false}) => {
-  const titleMarkup = title ? <h3>{title}</h3> : '';
+  const titleMarkup = title ? <h2>{title}</h2> : '';
   const copyMarkup = copy ? <div dangerouslySetInnerHTML={{ __html: copy }} /> : '';
   return (
     <div className={`content width__${columnWidth}`}>

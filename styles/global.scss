@@ -83,7 +83,7 @@ dd {
 
 .content {
   display: grid;
-  justify-content: center;
+  justify-content: inherit;
   margin: 0 auto;
 
   .content__callout {

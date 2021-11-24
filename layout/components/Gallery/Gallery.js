@@ -48,7 +48,7 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) =>
 const GalleryImage = ({ image, imageKey }) => {
 
   return (
-    <div className={`${styles.gallery__image} ${styles[image.style]}`} key={imageKey}>
+    <div className={`gallery__image ${styles[image.style]}`} key={imageKey}>
       <Image
         src={image.src}
         alt={image.alt}
@@ -61,8 +61,8 @@ const GalleryImage = ({ image, imageKey }) => {
 
 const GalleryImageLink = ({ image, imageKey }) => {
   return (
-      <Link href="/photography/[slug]" as={`photography/${image.slug}`} >
-        <div className={`${styles.gallery__image} ${styles.link} ${styles[image.style]}`} key={imageKey}>
+      <Link href="/photography/[[...page]]" as={`photography/${image.slug}`} >
+        <div className={`gallery__image link ${styles[image.style]}`} key={imageKey}>
           <Image
             src={image.src}
             alt={image.alt}
