@@ -3,7 +3,7 @@ import { builder, BuilderComponent, Builder } from '@builder.io/react';
 import Page from '../layout/Page';
 import '../layout/components/BuilderComponents';
 
-builder.init('25313235faa6499da368b5b3d484986b');
+builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
 const BuilderPage = (props) => {
 
