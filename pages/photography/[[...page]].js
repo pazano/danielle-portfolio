@@ -6,7 +6,7 @@ import { hydrateImage, builderRequestCustom } from '../../lib/builder_helpers';
 import ImageDetail from '../../layout/components/ImageDetail/ImageDetail';
 
 const ImageDetailPage = ( { content } ) => {
-  const imageData = content.image.value.data;
+  const imageData = content?.image.value.data
   const [image, setImage] = useState(imageData); // meh this
 
   useEffect(() => {
@@ -19,9 +19,9 @@ const ImageDetailPage = ( { content } ) => {
 
   return (
     <Page seo={{
-      title: imageData.metadata.title || '',
-      description: imageData.metadata.description || '',
-      keywords: imageData.metadata.keywords || '',
+      title: image.metadata.title || '',
+      description: image.metadata.description || '',
+      keywords: image.metadata.keywords || '',
     }}>
       <div className="content width__narrow">
         <ImageDetail
@@ -34,7 +34,21 @@ const ImageDetailPage = ( { content } ) => {
   );
 }
 
+export const getStaticPaths = async () => {
+  const results = await builder.getAll('image', {
+    options: {
+      noTargeting: true,
+    },
+  });
+
+  return {
+    paths: results.map((item) => ({ params: { page: [item.data?.metadata.slug] } })),
+    fallback: false,
+  };
+}
+
 export const getStaticProps = async ( {params} ) => {
+  console.log('\nImage Detail Static Props', params)
   let slugValue = params?.page[0];
 
   const content = await builderRequestCustom('image', 'query.data.metadata.slug', slugValue);
@@ -47,18 +61,6 @@ export const getStaticProps = async ( {params} ) => {
   }
 }
 
-export const getStaticPaths = async () => {
-  const results = await builder.getAll('image', {
-    options: {
-      noTargeting: true,
-    },
-  });
-
-  return {
-    paths: results.map((item) => ({ params: { page: [item.data?.metadata.slug] } })),
-    fallback: true,
-  };
-}
 
 
 export default ImageDetailPage;
