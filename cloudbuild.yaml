@@ -4,6 +4,9 @@ steps:
     args: ["install"]
   - name: node:12
     env:
+      - "BUILD=$BUILD_ID"
+      - "PROJECT=$PROJECT_ID"
+      - "COMMIT=$SHORT_SHA"
       - "NEXT_PUBLIC_BUILDER_API_KEY=$_BUILDER_KEY"
     entrypoint: yarn
     args: ["run", "static-out"]
