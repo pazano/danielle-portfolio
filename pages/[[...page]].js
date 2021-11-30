@@ -17,6 +17,7 @@ const BuilderPage = (props) => {
         <BuilderComponent
           content={props.content}
           model="page"
+          options={{ includeRefs: true }}
          />
       )
       : null}
