@@ -33,5 +33,3 @@ steps:
         '2',
         '--allow-unauthenticated',
       ]
-images:
-  - gcr.io/sublime-lens-235221/ellerou-dev
