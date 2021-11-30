@@ -56,7 +56,7 @@ export const getStaticPaths = async () => {
   });
 
   return {
-    paths: results.map((item) => ({ params: { page: [item.data?.url] }})),
+    paths: results.map((item) => ({ params: { page: [item.data?.url.substr(1)] }})),
     fallback: false,
   };
 };
