@@ -37,6 +37,7 @@ export const getStaticProps = async ( { params }) => {
 
   const content = await builder.get('page', {
     url: formattedPageUrl,
+    includeRefs: true,
   }).promise();
 
   return {
