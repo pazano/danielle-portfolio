@@ -1,6 +1,6 @@
 steps:
   #Build the container image
-  - name: 'gcr.io/cloud-builders/node'
+  - name: 'gcr.io/cloud-builders/node:12'
     args:
       [
         'build',
@@ -11,7 +11,7 @@ steps:
         '.',
       ]
   # Push the container image to Container Registry
-  - name: 'gcr.io/cloud-builders/node'
+  - name: 'gcr.io/cloud-builders/node:12'
     args:
       [
         'push',
