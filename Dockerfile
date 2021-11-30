@@ -2,22 +2,19 @@ FROM node:lts-alpine AS deps
 
 WORKDIR /srv/site
 COPY package.json package-lock.json ./
-RUN npm install --frozen-lockfile
+RUN yarn install
 
 FROM node:lts-alpine AS builder
 
-ARG cms_url
-ARG web_url
+
 ARG builder_api_key
-ARG builder_teams_model_id
-ARG builder_teams_model_id_spanish
 
 ENV NEXT_PUBLIC_BUILDER_API_KEY=$builder_api_key
 
 WORKDIR /srv/site
 COPY . .
 COPY --from=deps /srv/site/node_modules ./node_modules
-RUN npm run build
+RUN yarn run build
 
 # Production image, copy all the files and run next
 FROM node:lts-alpine AS deploy
