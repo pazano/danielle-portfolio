@@ -1,8 +1,9 @@
 import styles from './Hero.module.scss';
 
-const Hero = ({ text, image, height }) => {
+const Hero = ({ text, image, height, imageVerticalPosition='center' }) => {
   const imageStyle = {
-    backgroundImage: `url('${image}')`
+    backgroundImage: `url('${image}')`,
+    backgroundPositionY: imageVerticalPosition
   }
   return (
     <div className={`${styles.hero} ${height === 'large' ? styles.hero__large : height == 'medium' ? styles.hero__medium : styles.hero__small}`}>

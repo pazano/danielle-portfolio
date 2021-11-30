@@ -26,6 +26,12 @@ Builder.registerComponent(Hero,
           'medium',
           'small'
         ]
+      },
+      {
+        name: 'imageVerticalPosition',
+        type: 'string',
+        defaultValue: 'center',
+        enum: [ 'top', 'center', 'bottom' ]
       }
     ]
   })
