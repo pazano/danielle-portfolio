@@ -5,7 +5,7 @@ steps:
       [
         'build',
         '--build-arg',
-        'builder_api_key=$_BUILDER_API_KEY',
+        'builder_api_key=$_BUILDER_KEY',
         '-t',
         'gcr.io/sublime-lens-235221/github.com/pazano/danielle-portfolio:${SHORT_SHA}',
         '.',
@@ -22,7 +22,7 @@ steps:
     args: [
         'run',
         'deploy',
-        '$_CLOUD_RUN_DEPLOYMENT',
+        '$_CLOUD_RUN_SERVICE',
         '--image',
         'gcr.io/sublime-lens-235221/github.com/pazano/danielle-portfolio:${SHORT_SHA}',
         '--region',
