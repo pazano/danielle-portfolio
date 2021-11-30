@@ -1,4 +1,4 @@
-@import './Variables.scss';
+@use './_variables' as *;
 
 @mixin bp-tablet {
   @media all and (min-width: #{$tablet-width}){
