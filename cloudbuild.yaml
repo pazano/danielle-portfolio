@@ -1,14 +1,37 @@
 steps:
-  - name: node:12
-    entrypoint: yarn
-    args: ["install"]
-  - name: node:12
-    env:
-      - "BUILD=$BUILD_ID"
-      - "PROJECT=$PROJECT_ID"
-      - "COMMIT=$SHORT_SHA"
-      - "NEXT_PUBLIC_BUILDER_API_KEY=$_BUILDER_KEY"
-    entrypoint: yarn
-    args: ["run", "static-out"]
-  - name: gcr.io/cloud-builders/gsutil
-    args: ["-m", "rsync", "-r", "-c", "-d", "./out", "gs://$_DESTINATION"]
+  #Build the container image
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'build',
+        '--build-arg',
+        'builder_api_key=$_BUILDER_API_KEY',
+        '-t',
+        'gcr.io/sublime-lens-235221/github.com/pazano/danielle-portfolio:${SHORT_SHA}',
+        '.',
+      ]
+  # Push the container image to Container Registry
+  - name: 'gcr.io/cloud-builders/docker'
+    args:
+      [
+        'push',
+        'gcr.io/sublime-lens-235221/github.com/pazano/danielle-portfolio:${SHORT_SHA}',
+      ]
+  # Deploy the container image to Cloud Run
+  - name: 'gcr.io/cloud-builders/gcloud'
+    args: [
+        'run',
+        'deploy',
+        '$_CLOUD_RUN_DEPLOYMENT',
+        '--image',
+        'gcr.io/sublime-lens-235221/github.com/pazano/danielle-portfolio:${SHORT_SHA}',
+        '--region',
+        'us-central1',
+        '--platform',
+        'managed',
+        '--max-instances',
+        '2',
+        '--allow-unauthenticated',
+      ]
+images:
+  - gcr.io/sublime-lens-235221/ellerou-dev
