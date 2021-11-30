@@ -29,6 +29,5 @@ ENV NEXT_PUBLIC_BUILDER_API_KEY=$builder_api_key
 COPY --from=builder /srv/site/public ./public
 COPY --from=builder /srv/site/.next ./.next
 COPY --from=builder /srv/site/node_modules ./node_modules
-COPY --from=builder /srv/site/next-i18next.config.js ./next-i18next.config.js
 COPY --from=builder /srv/site/next.config.js ./next.config.js
 CMD ["node_modules/.bin/next", "start"]
