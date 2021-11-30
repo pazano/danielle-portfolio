@@ -24,7 +24,7 @@ WORKDIR /srv/site
 # We need the API ENV here for live
 ARG builder_api_key
 
-ENV NEXT_PUBLIC_BUILDER_API_KEY=$nl_builder_api_key
+ENV NEXT_PUBLIC_BUILDER_API_KEY=$builder_api_key
 
 COPY --from=builder /srv/site/public ./public
 COPY --from=builder /srv/site/.next ./.next
