@@ -83,7 +83,7 @@ const Gallery = (props) => {
 
   let { galleryImages, type } = props;
   let withLinks = props.withLinks || true;
-  let visibleLinks = props.visibleLinks || true;
+  let visibleLinks = props.visibleLinks || false;
 
   let triggerOnce = false;
 
