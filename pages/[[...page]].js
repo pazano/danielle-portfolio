@@ -1,4 +1,6 @@
 import { builder, BuilderComponent, Builder } from '@builder.io/react';
+import { getAsyncProps } from '@builder.io/utils';
+import { hydrateImageList } from '../lib/builder_helpers';
 
 import Page from '../layout/Page';
 import '../layout/components/BuilderComponents';
@@ -40,6 +42,15 @@ export const getStaticProps = async ( { params }) => {
     url: formattedPageUrl,
     includeRefs: true,
   }).promise();
+
+  await getAsyncProps(content, {
+    async Gallery(props) {
+      const hydratedImages = await hydrateImageList(props.galleryImages);
+      return {
+        galleryImages: hydratedImages,
+      }
+    }
+  })
 
   return {
     props: { content },
