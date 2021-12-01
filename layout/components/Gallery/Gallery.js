@@ -92,7 +92,7 @@ const Gallery = ({ galleryImages, type="page", withLinks=true, visibleLinks=fals
       console.log(hydratedImages);
     }
     Builder.isPreviewing && setImageDataForPreview();
-  }, [imageList])
+  }, [galleryImages])
 
   // convert list of images to rows based on aspect ratios
   let rowWeight = 0; // every row adds to four - landscape counts as 2
