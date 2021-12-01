@@ -19,7 +19,7 @@ const BuilderPage = (props) => {
         <BuilderComponent
           content={props.content}
           model="page"
-          options={{ includeRefs: true }}
+          // options={{ includeRefs: true }}
          />
       )
       : null}
@@ -40,7 +40,7 @@ export const getStaticProps = async ( { params }) => {
 
   const content = await builder.get('page', {
     url: formattedPageUrl,
-    includeRefs: true,
+    // includeRefs: true,
   }).promise();
 
   await getAsyncProps(content, {
