@@ -4,7 +4,7 @@ import Link from 'next/link';
 import Image from '../Image/Image';
 import styles from './Gallery.module.scss';
 import { useState, useEffect } from 'react';
-import { Builder } from '@builder.io/sdk';
+import { Builder } from '@builder.io/react';
 
 const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) => {
 
@@ -79,7 +79,13 @@ const GalleryImageLink = ({ image, imageKey }) => {
 //    Type indicates layout width -- Hero uses smaller gutters than Page
 //    Links looks to display a label and link over Gallery entries
 
-const Gallery = ({ galleryImages, type="page", withLinks=true, visibleLinks=false }) => {
+const Gallery = (props) => {
+
+  let { galleryImages, type } = props;
+  let withLinks = props.withLinks || true;
+  let visibleLinks = props.visibleLinks || true;
+
+  let triggerOnce = false;
 
   // ensure the image records have data in Builder preview
   const [imageList, setImageList] = useState(galleryImages);
@@ -88,11 +94,11 @@ const Gallery = ({ galleryImages, type="page", withLinks=true, visibleLinks=fals
     async function setImageDataForPreview() {
       const hydratedImages = await hydrateImageList(galleryImages);
       hydratedImages && setImageList(hydratedImages);
-      console.log('>> Gallery isPreviewing:  hydrated images <<');
-      console.log(hydratedImages);
     }
     Builder.isPreviewing && setImageDataForPreview();
-  }, [galleryImages])
+  }, [triggerOnce]);
+
+  triggerOnce = true;
 
   // convert list of images to rows based on aspect ratios
   let rowWeight = 0; // every row adds to four - landscape counts as 2
