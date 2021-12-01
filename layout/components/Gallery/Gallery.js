@@ -88,6 +88,8 @@ const Gallery = ({ galleryImages, type="page", withLinks=true, visibleLinks=fals
     async function setImageDataForPreview() {
       const hydratedImages = await hydrateImageList(galleryImages);
       hydratedImages && setImageList(hydratedImages);
+      console.log('>> Gallery isPreviewing:  hydrated images <<');
+      console.log(hydratedImages);
     }
     Builder.isPreviewing && setImageDataForPreview();
   }, [imageList])
