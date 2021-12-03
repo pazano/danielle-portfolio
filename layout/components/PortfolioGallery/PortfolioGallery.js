@@ -3,11 +3,11 @@ import { sortGalleryRows } from '../../../lib/layout_helpers';
 
 import Link from 'next/link';
 import Image from '../Image/Image';
-import styles from './Gallery.module.scss';
+import styles from './PortfolioGallery.module.scss';
 import { useState, useEffect } from 'react';
 import { Builder } from '@builder.io/react';
 
-const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) => {
+const GalleryImageRow = ({ galleryImages, respectAspect, rowKey }) => {
 
   const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '_' + galleryImage.orientation : galleryImage.orientation, "");
 
@@ -24,38 +24,15 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) =>
               respectAspect,
               style: 'image_' + counter,
             }
-            if (withLinks) {
-              return(
-                <GalleryImageLink
-                  image={imageData}
-                  imageKey={`gallery-image-${++counter}`}
-                />
-              )
-            } else {
-              return(
-                <GalleryImage
-                  image={imageData}
-                  imageKey={`gallery-image-${++counter}`}
-                />
-              )
-            }
+            return(
+              <GalleryImageLink
+                image={imageData}
+                imageKey={`gallery-image-${++counter}`}
+              />
+            )
           }
         )
       }
-    </div>
-  )
-}
-
-const GalleryImage = ({ image, imageKey }) => {
-
-  return (
-    <div className={`gallery__image ${styles[image.style]}`} key={imageKey}>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        aspectRatio={image.aspectRatio}
-        respectAspect={image.respectAspect}
-      />
     </div>
   )
 }
@@ -76,14 +53,14 @@ const GalleryImageLink = ({ image, imageKey }) => {
 }
 
 
-// Gallery
-//    Type indicates layout width -- Hero uses smaller gutters than Page
-//    Links looks to display a label and link over Gallery entries
+// Portfolio Gallery displays only Images with detail pages, and links to them by default
 
-const Gallery = ({ galleryImages, type, withLinks=true, visibleLinks=false}) => {
+const PortfolioGallery = (props) => {
 
-  console.log(`[[ Gallery ]] -> ${galleryImages.length} Images`)
-  console.log(` -- ${Builder.isPreviewing ? 'Previewing' : 'Live' } -- `)
+  let { galleryImages, rowSize } = props;
+
+  console.log(`[[ Portfolio Gallery ]] -> ${galleryImages.length} Images`)
+  console.log(` -- ${Builder.isPreviewing ? 'Previewing' : 'Live'} -- `)
 
   // ensure the image records have data in Builder preview
   const [imageList, setImageList] = useState([]);
@@ -93,10 +70,11 @@ const Gallery = ({ galleryImages, type, withLinks=true, visibleLinks=false}) => 
       const hydratedImages = await hydrateImageList(galleryImages);
       hydratedImages && setImageList(hydratedImages);
     }
-    Builder.isPreviewing ? setImageDataForPreview() : setImageList(galleryImages)
+    Builder.isPreviewing ? setImageDataForPreview() : setImageList(galleryImages);
   }, [galleryImages]);
 
-  const galleryRows = sortGalleryRows(imageList, 4);
+  // convert list of images to rows based on aspect ratios
+  const galleryRows = sortGalleryRows(imageList, rowSize);
 
   //  Test for aspects in the list, disable strict aspect management if mixed
   const respectAspect = galleryRows.reduce(((result, row) => {
@@ -107,13 +85,12 @@ const Gallery = ({ galleryImages, type, withLinks=true, visibleLinks=false}) => 
 
   return (
     <div className={styles.content__gallery}>
-      <div className={`${styles.gallery__container} ${styles["gallery__" + type]} ${visibleLinks ? styles.gallery__with_link_labels : ''}`}>
+      <div className={`${styles.gallery__container} ${styles["gallery__hero"]}`}>
         {galleryRows &&
           galleryRows.map((images) =>
             <GalleryImageRow
               galleryImages={images}
               respectAspect={respectAspect}
-              withLinks={withLinks}
               rowKey={`gallery-image-row-${++rowCounter}`}
             />)
         }
@@ -122,4 +99,4 @@ const Gallery = ({ galleryImages, type, withLinks=true, visibleLinks=false}) => 
   )
 }
 
-export default Gallery;
+export default PortfolioGallery;

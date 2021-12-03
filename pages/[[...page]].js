@@ -4,6 +4,7 @@ import { hydrateImageList } from '../lib/builder_helpers';
 
 import Page from '../layout/Page';
 import '../layout/components/BuilderComponents';
+import PortfolioGallery from '../layout/components/PortfolioGallery/PortfolioGallery';
 
 builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
@@ -19,7 +20,6 @@ const BuilderPage = (props) => {
         <BuilderComponent
           content={props.content}
           model="page"
-          // options={{ includeRefs: true }}
          />
       )
       : null}
@@ -40,11 +40,18 @@ export const getStaticProps = async ( { params }) => {
 
   const content = await builder.get('page', {
     url: formattedPageUrl,
-    // includeRefs: true,
   }).promise();
 
   await getAsyncProps(content, {
+    async PortfolioGallery(props) {
+      console.log('[[ Portfolio Gallery ]] getAsyncProps');
+      const hydratedImages = await hydrateImageList(props.galleryImages);
+      return {
+        galleryImages: hydratedImages,
+      }
+    },
     async Gallery(props) {
+      console.log('[[ Gallery ]] getAsyncProps');
       const hydratedImages = await hydrateImageList(props.galleryImages);
       return {
         galleryImages: hydratedImages,
