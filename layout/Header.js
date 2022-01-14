@@ -19,11 +19,6 @@ const Header = () => {
       key: 'menu-about'
     },
     {
-      label: 'Weddings',
-      target: 'https://daniellerouillard.com',
-      key: 'menu-weddings'
-    },
-    {
       label: '@ellerouphoto',
       target: 'https://instagram.com/ellerouphoto',
       key: 'menu-instagram'

@@ -1,4 +1,5 @@
 import { hydrateImageList } from '../../../lib/builder_helpers';
+import { sortGalleryRows } from '../../../lib/layout_helpers';
 
 import Link from 'next/link';
 import Image from '../Image/Image';
@@ -85,49 +86,19 @@ const Gallery = (props) => {
   let withLinks = props.withLinks || true;
   let visibleLinks = props.visibleLinks || false;
 
-  let triggerOnce = false;
-
   // ensure the image records have data in Builder preview
-  const [imageList, setImageList] = useState(galleryImages);
+  const [imageList, setImageList] = useState([]);
 
   useEffect(() => {
     async function setImageDataForPreview() {
       const hydratedImages = await hydrateImageList(galleryImages);
       hydratedImages && setImageList(hydratedImages);
     }
-    Builder.isPreviewing && setImageDataForPreview();
-  }, [triggerOnce]);
-
-  triggerOnce = true;
+    Builder.isPreviewing ? setImageDataForPreview() : setImageList(galleryImages);
+  }, [galleryImages]);
 
   // convert list of images to rows based on aspect ratios
-  let rowWeight = 0; // every row adds to four - landscape counts as 2
-  let currentRow = [];
-
-  const galleryRows = imageList.reduce((rowList, {image}) => {
-    image = image.value.data;
-    image.src = image.image;
-    image.aspectRatio = image.orientation == 'portrait' ? '2x3' : '3x2';
-    rowWeight = image.orientation == 'portrait' ? rowWeight + 1 : rowWeight + 2;
-
-    if(rowWeight == 4) {
-      currentRow.push(image);
-      rowList.push(currentRow);
-      rowWeight = 0;
-      currentRow = [];
-      return rowList;
-    } else if (rowWeight > 4) {
-      // cuts off the previous row early since we added a weight of 2 to a 3-weight row
-      rowList.push(currentRow);
-      rowWeight = 2;
-      currentRow = [];
-      currentRow.push(image);
-      return rowList;
-    } else {
-      currentRow.push(image);
-      return rowList;
-    }
-  }, []);
+  const galleryRows = sortGalleryRows(imageList, 4);
 
   //  Test for aspects in the list, disable strict aspect management if mixed
   const respectAspect = galleryRows.reduce(((result, row) => {
