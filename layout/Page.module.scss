@@ -7,6 +7,17 @@
   grid-area: page;
   overflow-x: hidden;
   overflow-y: auto;
+
+  display: grid;
+  grid-template-columns: [full-start] minmax(4vmin,auto) [wide-start] minmax(auto,240px) [main-start] min(720px,calc(100% - 8vw)) [main-end] minmax(auto,240px) [wide-end] minmax(4vmin,auto) [full-end];
+  grid-template-areas:
+    "header"
+    "."
+    "footer";
+}
+
+.page > * {
+  grid-column: full-start/full-end;
 }
 
 .header {
