@@ -4,7 +4,7 @@ $gallery__grid-unit: 1fr;
 
 .gallery__container {
   grid-area: gallery;
-  padding: 8px;
+  padding: 1rem;
 
   picture {
     img {
@@ -17,11 +17,10 @@ $gallery__grid-unit: 1fr;
 
 .gallery__row {
   display: grid;
-  gap: 8px;
-  margin-bottom: 4px;
+  gap: 1rem;
+  margin-bottom: 0.5rem;
 
   @include bp-desktop-small {
-    // grid-template-columns: repeat(20, $gallery__grid-unit);
     grid-template-columns: repeat(16, $gallery__grid-unit);
   }
 }
@@ -155,13 +154,6 @@ $gallery__grid-unit: 1fr;
 
     @include bp-desktop-small {
       grid-template-rows: repeat(6, $gallery__grid-unit);
-      // grid-template-areas:
-      // ". . one one one one two two two two three three three three four four four four . ."
-      // ". . one one one one two two two two three three three three four four four four . ."
-      // ". . one one one one two two two two three three three three four four four four . ."
-      // ". . one one one one two two two two three three three three four four four four . ."
-      // ". . one one one one two two two two three three three three four four four four . ."
-      // ". . one one one one two two two two three three three three four four four four . .";
       grid-template-areas:
       "one one one one two two two two three three three three four four four four"
       "one one one one two two two two three three three three four four four four"

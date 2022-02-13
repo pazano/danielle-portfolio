@@ -1,3 +1,5 @@
+@use '/styles/_partials' as *;
+
 .main {
   min-height: 100vh;
   width: 100vw;
@@ -9,7 +11,7 @@
   overflow-y: auto;
 
   display: grid;
-  grid-template-columns: [full-start] minmax(4vmin,auto) [wide-start] minmax(auto,240px) [main-start] min(720px,calc(100% - 8vw)) [main-end] minmax(auto,240px) [wide-end] minmax(4vmin,auto) [full-end];
+  grid-template-columns: $grid-columns;
   grid-template-areas:
     "header"
     "."
@@ -17,7 +19,16 @@
 }
 
 .page > * {
-  grid-column: full-start/full-end;
+  grid-column-start: $span-full-start;
+  grid-column-end: $span-full-end;
+}
+
+.builder-component {
+  grid-template-columns: $grid-columns;
+}
+.builder-component > * {
+  grid-column-start: $span-full-start;
+  grid-column-end: $span-full-end;
 }
 
 .header {
