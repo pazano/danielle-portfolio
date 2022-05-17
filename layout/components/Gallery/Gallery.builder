@@ -19,6 +19,14 @@ Builder.registerComponent(Gallery,
           }
         ],
       },
+      {
+        name: 'columns',
+        type: 'string',
+        defaultValue: 'four',
+        enum: [
+          'two', 'three', 'four'
+        ]
+      },
       layoutControls,
     ]
   })
