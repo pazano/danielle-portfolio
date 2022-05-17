@@ -1,4 +1,5 @@
 import { Builder } from '@builder.io/react';
+import { layoutControls } from '../BuilderAdminParts';
 import Gallery from './Gallery';
 
 Builder.registerComponent(Gallery,
@@ -19,14 +20,13 @@ Builder.registerComponent(Gallery,
         ],
       },
       {
-        name: 'type',
+        name: 'columns',
         type: 'string',
-        copyOnAdd: false,
-        defaultValue: 'hero',
+        defaultValue: 'four',
         enum: [
-          'page',
-          'hero'
+          'two', 'three', 'four'
         ]
       },
+      layoutControls,
     ]
   })

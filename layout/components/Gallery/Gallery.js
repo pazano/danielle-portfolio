@@ -7,7 +7,7 @@ import styles from './Gallery.module.scss';
 import { useState, useEffect } from 'react';
 import { Builder } from '@builder.io/react';
 
-const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) => {
+const GalleryImageRow = ({ galleryImages, respectAspect, rowKey }) => {
 
   const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '_' + galleryImage.orientation : galleryImage.orientation, "");
 
@@ -24,38 +24,15 @@ const GalleryImageRow = ({ galleryImages, respectAspect, withLinks, rowKey }) =>
               respectAspect,
               style: 'image_' + counter,
             }
-            if (withLinks) {
-              return(
-                <GalleryImageLink
-                  image={imageData}
-                  imageKey={`gallery-image-${++counter}`}
-                />
-              )
-            } else {
-              return(
-                <GalleryImage
-                  image={imageData}
-                  imageKey={`gallery-image-${++counter}`}
-                />
-              )
-            }
+            return(
+              <GalleryImageLink
+                image={imageData}
+                imageKey={`gallery-image-${++counter}`}
+              />
+            )
           }
         )
       }
-    </div>
-  )
-}
-
-const GalleryImage = ({ image, imageKey }) => {
-
-  return (
-    <div className={`gallery__image ${styles[image.style]}`} key={imageKey}>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        aspectRatio={image.aspectRatio}
-        respectAspect={image.respectAspect}
-      />
     </div>
   )
 }
@@ -81,9 +58,8 @@ const GalleryImageLink = ({ image, imageKey }) => {
 //    Links looks to display a label and link over Gallery entries
 
 const Gallery = (props) => {
-
+  console.log(props);
   let { galleryImages, type } = props;
-  let withLinks = props.withLinks || true;
   let visibleLinks = props.visibleLinks || false;
 
   // ensure the image records have data in Builder preview
@@ -115,7 +91,6 @@ const Gallery = (props) => {
             <GalleryImageRow
               galleryImages={images}
               respectAspect={respectAspect}
-              withLinks={withLinks}
               rowKey={`gallery-image-row-${++rowCounter}`}
             />)
         }
