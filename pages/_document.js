@@ -1,12 +1,15 @@
-import React from 'react'
-import Document, { Head, Main, NextScript } from 'next/document'
+import React from 'react';
+import Document, { Html, Head, Main, NextScript } from 'next/document';
+import { builder } from '@builder.io/react';
 
-import { GA_TRACKING_ID } from '../lib/tracking'
+import { GA_TRACKING_ID } from '../lib/tracking';
+
+builder.init(process.env.NEXT_PUBLIC_BUILDER_API_KEY);
 
 export default class extends Document {
   render() {
     return (
-      <html>
+      <Html>
         <Head>
           <script
             async
@@ -27,7 +30,7 @@ export default class extends Document {
           <Main />
           <NextScript />
         </body>
-      </html>
+      </Html>
     )
   }
 }

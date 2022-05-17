@@ -1,10 +1,10 @@
-import Navigation from './components/Navigation';
+import Navigation from './components/Navigation/Navigation';
 import Link from 'next/link';
 
-import './Header.scss';
+import styles from './Header.module.scss';
 
 const Logo = () => (
-  <div className="logo">
+  <div className={styles.logo}>
     <Link href="/">
       <h1>elle | rou <span>photography</span></h1>
     </Link>
@@ -19,11 +19,6 @@ const Header = () => {
       key: 'menu-about'
     },
     {
-      label: 'Weddings',
-      target: 'https://daniellerouillard.com',
-      key: 'menu-weddings'
-    },
-    {
       label: '@ellerouphoto',
       target: 'https://instagram.com/ellerouphoto',
       key: 'menu-instagram'
@@ -33,7 +28,7 @@ const Header = () => {
   const emptyMenu = [];
 
   return(
-    <div className="header">
+    <div className={styles.header}>
       <Navigation
         menuItems={menu}
       />
