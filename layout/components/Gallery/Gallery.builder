@@ -15,7 +15,7 @@ Builder.registerComponent(Gallery,
           {
             name: 'image',
             type: 'reference',
-            modelId: '62250208cae5453095dbaf4bd9c43a31'
+            modelId: process.env.NEXT_PUBLIC_IMAGE_MODEL_ID
           }
         ],
       },
