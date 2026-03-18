@@ -48,11 +48,8 @@ export const getStaticPaths = async () => {
 }
 
 export const getStaticProps = async ( {params} ) => {
-  //console.log('\nImage Detail Static Props', params)
   let slugValue = params?.page[0];
-  //console.log(slugValue)
   const content = await builderRequestCustom('image', 'query.data.metadata.slug', slugValue);
-  console.log(content)
   const hydratedImage = await hydrateImage(content[0]);
 
   return {
