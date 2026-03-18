@@ -43,21 +43,22 @@ export const getStaticPaths = async () => {
 
   return {
     paths: results.map((item) => ({ params: { page: [item.data?.metadata.slug] } })),
-    fallback: false,
+    fallback: 'blocking',
   };
 }
 
 export const getStaticProps = async ( {params} ) => {
-  console.log('\nImage Detail Static Props', params)
+  //console.log('\nImage Detail Static Props', params)
   let slugValue = params?.page[0];
-
+  //console.log(slugValue)
   const content = await builderRequestCustom('image', 'query.data.metadata.slug', slugValue);
+  console.log(content)
   const hydratedImage = await hydrateImage(content[0]);
 
   return {
     props: { content: hydratedImage  },
-    revalidate: true,
-    notFound: !content
+    revalidate: 60,
+    notFound: !content?.length
   }
 }
 
