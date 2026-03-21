@@ -3,11 +3,12 @@ import { sortGalleryRows } from '../../../lib/layout_helpers';
 
 import Link from 'next/link';
 import Image from '../Image/Image';
+import GalleryModal from '../GalleryModal/GalleryModal';
 import styles from './Gallery.module.scss';
 import { useState, useEffect } from 'react';
 import { Builder } from '@builder.io/react';
 
-const GalleryImageRow = ({ galleryImages, respectAspect, rowKey }) => {
+const GalleryImageRow = ({ galleryImages, respectAspect, rowKey, onImageClick }) => {
 
   const rowClassName = galleryImages.reduce((result, galleryImage) => result ? result + '_' + galleryImage.orientation : galleryImage.orientation, "");
 
@@ -28,6 +29,7 @@ const GalleryImageRow = ({ galleryImages, respectAspect, rowKey }) => {
               <GalleryImageLink
                 image={imageData}
                 imageKey={`gallery-image-${++counter}`}
+                onImageClick={onImageClick}
               />
             )
           }
@@ -37,17 +39,20 @@ const GalleryImageRow = ({ galleryImages, respectAspect, rowKey }) => {
   )
 }
 
-const GalleryImageLink = ({ image, imageKey }) => {
+const GalleryImageLink = ({ image, imageKey, onImageClick }) => {
   return (
-      <Link href="/photography/[[...page]]" as={`photography/${image.slug}`} >
-        <div className={`gallery__image link ${styles[image.style]}`} key={imageKey}>
+      <Link href="/photography/[[...page]]" as={`photography/${image.slug}`} passHref>
+        <a
+          className={`gallery__image link ${styles[image.style]}`}
+          onClick={(e) => { e.preventDefault(); onImageClick(image.slug); }}
+        >
           <Image
             src={image.src}
             alt={image.alt}
             aspectRatio={image.aspectRatio}
             respectAspect={image.respectAspect}
           />
-        </div>
+        </a>
       </Link>
   )
 }
@@ -64,6 +69,8 @@ const Gallery = (props) => {
 
   // ensure the image records have data in Builder preview
   const [imageList, setImageList] = useState([]);
+  const [modalOpen, setModalOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(0);
 
   useEffect(() => {
     async function setImageDataForPreview() {
@@ -75,6 +82,18 @@ const Gallery = (props) => {
 
   // convert list of images to rows based on aspect ratios
   const galleryRows = sortGalleryRows(imageList, 4);
+
+  // flat list of the transformed image objects (with src, metadata, attributions, etc.)
+  // that appear in the gallery — used for modal navigation
+  const flatImageList = galleryRows.flat();
+
+  const handleImageClick = (slug) => {
+    const index = flatImageList.findIndex(img => img.metadata?.slug === slug);
+    if (index !== -1) {
+      setActiveIndex(index);
+      setModalOpen(true);
+    }
+  };
 
   //  Test for aspects in the list, disable strict aspect management if mixed
   const respectAspect = galleryRows.reduce(((result, row) => {
@@ -92,9 +111,18 @@ const Gallery = (props) => {
               galleryImages={images}
               respectAspect={respectAspect}
               rowKey={`gallery-image-row-${++rowCounter}`}
+              onImageClick={handleImageClick}
             />)
         }
       </div>
+
+      {modalOpen && flatImageList.length > 0 && (
+        <GalleryModal
+          images={flatImageList}
+          startIndex={activeIndex}
+          onClose={() => setModalOpen(false)}
+        />
+      )}
     </div>
   )
 }
